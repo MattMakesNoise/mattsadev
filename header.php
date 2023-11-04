@@ -22,12 +22,27 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<div id="slideout">
+	<div class="slideout-inner">
+		<a href="#" class="close-button">&times;</a>
+		<?php
+		wp_nav_menu(
+			array(
+				'theme_location' => 'nav-menu',
+				'menu_id'        => 'primary-menu',
+			)
+		);
+		?>
+	</div>
+</div><!-- #site-navigation -->
+
 <div id="page-wrapper">
+	<div id="overlay"></div>
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mattsadev' ); ?></a>
 
 	<header id="site-header">
 		<div class="header-wrapper">
-			<button class="burger-wrapper menu-btn">
+			<button id="burger-wrapper" class="menu-btn">
                 <span class="burger-box">
                     <span class="burger-inner"></span>
                 </span>
@@ -47,7 +62,7 @@
 				endif; ?>
 			</div><!-- .site-branding -->
 
-			<nav id="site-navigation" class="main-navigation slideout">
+			<nav id="site-navigation" class="main-navigation">
 				<?php
 				wp_nav_menu(
 					array(

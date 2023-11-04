@@ -144,7 +144,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center; }
-    #site-header .header-wrapper .burger-wrapper {
+    #site-header .header-wrapper #burger-wrapper {
       order: 1;
       display: flex;
       justify-content: center;
@@ -154,31 +154,31 @@ body {
       border: none;
       cursor: pointer; }
       @media (min-width: 768px) {
-        #site-header .header-wrapper .burger-wrapper {
+        #site-header .header-wrapper #burger-wrapper {
           width: 25%;
           justify-content: normal; } }
       @media (min-width: 992px) {
-        #site-header .header-wrapper .burger-wrapper {
+        #site-header .header-wrapper #burger-wrapper {
           display: none; } }
-      #site-header .header-wrapper .burger-wrapper .burger-box {
+      #site-header .header-wrapper #burger-wrapper .burger-box {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 56px;
         height: 63px; }
-        #site-header .header-wrapper .burger-wrapper .burger-box .burger-inner,
-        #site-header .header-wrapper .burger-wrapper .burger-box .burger-inner::before,
-        #site-header .header-wrapper .burger-wrapper .burger-box .burger-inner::after {
+        #site-header .header-wrapper #burger-wrapper .burger-box .burger-inner,
+        #site-header .header-wrapper #burger-wrapper .burger-box .burger-inner::before,
+        #site-header .header-wrapper #burger-wrapper .burger-box .burger-inner::after {
           display: block;
           position: absolute;
           height: 5px;
           width: 30px;
           border-radius: 3px;
           background-color: #2FB279; }
-        #site-header .header-wrapper .burger-wrapper .burger-box .burger-inner::before {
+        #site-header .header-wrapper #burger-wrapper .burger-box .burger-inner::before {
           content: '';
           margin-top: -10px; }
-        #site-header .header-wrapper .burger-wrapper .burger-box .burger-inner::after {
+        #site-header .header-wrapper #burger-wrapper .burger-box .burger-inner::after {
           content: '';
           margin-top: 10px; }
     #site-header .header-wrapper .site-branding {
@@ -245,6 +245,46 @@ body {
           border-radius: 50%;
           box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
           width: 1rem; }
+
+#slideout {
+  display: none;
+  background-color: #2FB279;
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  left: 0;
+  z-index: 1;
+  overflow-x: hidden;
+  transition: 0.5s; }
+  #slideout .slideout-inner {
+    padding: 1rem; }
+    #slideout .slideout-inner .close-button {
+      color: #FCFCFC;
+      margin-bottom: 2rem;
+      font-size: 3rem;
+      text-decoration: none;
+      cursor: pointer; }
+    #slideout .slideout-inner .menu-nav-bar-container {
+      margin-top: 1rem; }
+      #slideout .slideout-inner .menu-nav-bar-container ul li {
+        list-style-type: none;
+        margin-bottom: 1rem; }
+        #slideout .slideout-inner .menu-nav-bar-container ul li a {
+          color: #FCFCFC;
+          text-transform: uppercase;
+          text-decoration: none;
+          cursor: pointer; }
+
+#page-wrapper {
+  transition: margin-left .5s; }
+
+#overlay {
+  display: none;
+  position: absolute;
+  width: calc(100% - 250px);
+  height: 100%;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.8); }
 
 .content-wrapper {
   max-width: 1440px;
