@@ -47,8 +47,7 @@
 				endif; ?>
 			</div><!-- .site-branding -->
 
-			<nav id="site-navigation" class="main-navigation">
-<!--				<button class="btn-dark-blue menu-toggle" aria-controls="primary-menu" aria-expanded="false">--><?php //esc_html_e( 'Primary Menu', 'mattsadev' ); ?><!--</button>-->
+			<nav id="site-navigation" class="main-navigation slideout">
 				<?php
 				wp_nav_menu(
 					array(

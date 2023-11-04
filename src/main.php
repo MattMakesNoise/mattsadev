@@ -215,7 +215,7 @@ final class Main {
 	 * @since 0.1.0
 	 */
 	public function wp_enqueue_scripts(): void {
-		$min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
+		// $min = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
 
 		/**
 		 * Enqueue styles.
@@ -237,13 +237,23 @@ final class Main {
 		/**
 		 * Enqueue scripts.
 		 */
-		wp_enqueue_script(
-			'mattsadev',
-			get_stylesheet_directory_uri() . '/assets/js/main' . $min . '.js',
-			[ 'jquery' ],
-			$this->version,
-			true
-		);
+		if ( ! is_admin() ) {
+			wp_enqueue_script(
+				'mattsadev-frontend',
+				get_stylesheet_directory_uri() . '/assets/js/frontend/frontend.min.js',
+				[ 'jquery' ],
+				$this->version,
+				true
+			);
+		} else {
+			wp_enqueue_script(
+				'mattsadev-admin',
+				get_stylesheet_directory_uri() . '/assets/js/admin/admin.min.js',
+				[ 'jquery' ],
+				$this->version,
+				true
+			);
+		}
 	}
 
 	/**
