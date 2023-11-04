@@ -1,7 +1,7 @@
 @import "../../variables", "../../mixins";
 
 #site-header {
-    height: 100px;
+    min-height: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,11 +11,68 @@
         max-width: 1440px;
 		width: 100%;
 		margin: 0 auto;
+		padding: 0 1rem;
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
+
+		.burger-wrapper {
+			order: 1;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: white !important;
+			padding: 0;
+			border: none;
+			cursor: pointer;
+			@include md {
+				width: 25%;
+				justify-content: normal;
+			}
+			@include lg {
+				display: none;
+			}
+
+			.burger-box {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 56px;
+				height: 63px;
+
+				.burger-inner,
+				.burger-inner::before,
+				.burger-inner::after {
+					display: block;
+					position: absolute;
+					height: 5px;
+					width: 30px;
+					border-radius: 3px;
+					background-color: $dark-green;
+				}
+
+				.burger-inner::before {
+					content: '';
+					margin-top: -10px;
+				}
+
+				.burger-inner::after {
+					content: '';
+					margin-top: 10px;
+				}
+			}
+		}
 
 		.site-branding {
-			margin-right: 5rem;
+			order: 2;
+			width: 50%;
+			display: flex;
+			justify-content: center;
+			@include md {
+				order: 1;
+				width: 25%;
+				justify-content: flex-start;
+			}
 
 			.site-title a {
 				color: $dark-green;
@@ -25,69 +82,76 @@
 		}
 
         .main-navigation {
-            width: 400px;
+			display: none;
+            width: 50%;
+			@include lg {
+				display: block;
+				order: 2;
+			}
 
             ul {
                 display: flex;
                 flex-direction: row;
-                justify-content: space-between;
+                justify-content: center;
                 align-items: center;
+				padding: 1rem 0;
                 list-style-type: none;
 
-                li {
+                .menu-item {
+					margin: 0 1rem;
+					padding: 1rem 0;
+
+					&:first-child {
+						margin-left: 0;
+					}
+
+					&:last-child {
+						margin-right: 0;
+					}
+
                     a {
 						color: $nearly-black;
+						padding: 1rem 0;
                         text-decoration: none;
-                        opacity: .8;
                         text-transform: uppercase;
+                        opacity: .8;
                     }
                 }
+
+				.current_page_item {
+					display: inline;
+					border-bottom: 1px solid $dark-green;
+				}
             }
         }
 
 		#colour-switch-wrapper {
-			width: 100px;
-			height: 50px;
+			order: 3;
+			width: 25%;
 
 			.colour-switch {
-				//background-color: $dark-green;
+				float: right;
 				display: flex;
 				justify-content: flex-start;
 				align-items: center;
-				width: 100%;
-				padding: .5rem;
+				width: 3.125rem;
+				padding: .25rem;
 				border: 2px solid $dark-green;
-				border-radius: 10rem;
+				border-radius: 5rem;
 				box-shadow: $shadow;
 
 				.pill {
 					background-color: $dark-green;
-					padding: 1rem;
+					padding: .5rem;
 					border: 1px solid $dark-green;
 					border-radius: 50%;
 					box-shadow: $shadow;
-					width: 30px;
+					width: 1rem;
 
 					.pill-inner {
 
 					}
 				}
-			}
-		}
-
-		.burger-wrapper {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			padding: 0;
-			background-color: white !important;
-			cursor: pointer;
-			@include md {
-				width: 25%;
-				justify-content: normal;
-			}
-			@include lg {
-				display: none;
 			}
 		}
     }

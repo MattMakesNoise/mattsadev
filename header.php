@@ -27,6 +27,12 @@
 
 	<header id="site-header">
 		<div class="header-wrapper">
+			<button class="burger-wrapper menu-btn">
+                <span class="burger-box">
+                    <span class="burger-inner"></span>
+                </span>
+			</button>
+
 			<div class="site-branding">
 				<?php
 				the_custom_logo();
