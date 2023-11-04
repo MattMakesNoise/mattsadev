@@ -1,0 +1,16 @@
+@import
+"variables",
+"mixins",
+"frontend/global-styles";
+
+// Pages
+@import
+"frontend/pages/about",
+"frontend/pages/cv",
+"frontend/pages/home";
+
+// Parts
+@import
+"frontend/parts/header",
+"frontend/parts/content",
+"frontend/parts/footer";

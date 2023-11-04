@@ -1,0 +1,38 @@
+{
+	"name": "vendor-name/mattsadev",
+	"description": "Custom WordPress theme.",
+	"type": "wordpress-theme",
+	"license": "All rights reserved.",
+	"authors": [
+		{
+			"name": "Matt Jones"
+		}
+	],
+	"require": {
+		"php": ">=7.3.0"
+	},
+	"require-dev": {
+		"automattic/jetpack-autoloader": "^2.10"
+	},
+	"scripts": {
+		"lint": "phpcs --colors -p -s -v",
+		"fix": "phpcbf -p -v"
+	},
+	"autoload": {
+		"classmap": [
+			"functions.php",
+			"src/"
+		],
+		"psr-4": {
+			"Mattsadev\\": "src"
+		}
+	},
+	"config": {
+		"autoloader-suffix": "Mattsadev",
+		"optimize-autoloader": true,
+		"allow-plugins": {
+			"automattic/jetpack-autoloader": true
+		}
+	}
+}
+

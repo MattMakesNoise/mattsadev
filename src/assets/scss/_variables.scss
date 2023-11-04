@@ -1,0 +1,23 @@
+// Media query breakpoints
+$breakpoints: (
+    "XS": 425px,
+    "SM": 576px,
+    "MD": 768px,
+    "LG": 992px,
+    "XL": 1200px,
+    "XXL": 1440px,
+    "XXXL": 1920px
+);
+
+// Colours
+$yellow: #F5E13B;
+$light-green: #90CF59;
+$dark-green: #2FB279;
+$light-blue: #006B7C;
+$dark-blue: #2F4858;
+$nearly-black: #0F0F0F;
+$nearly-white: #FCFCFC;
+$very-light-grey: #F7F7F7;
+
+$bord-rad: 7px;
+$shadow: 0 2px 4px 0 rgba(0,0,0,0.1);

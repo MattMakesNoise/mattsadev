@@ -1,0 +1,94 @@
+@import "../../variables", "../../mixins";
+
+#site-header {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	box-shadow: $shadow;
+
+    .header-wrapper {
+        max-width: 1440px;
+		width: 100%;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+
+		.site-branding {
+			margin-right: 5rem;
+
+			.site-title a {
+				color: $dark-green;
+				text-decoration: none;
+				text-transform: uppercase;
+			}
+		}
+
+        .main-navigation {
+            width: 400px;
+
+            ul {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+                list-style-type: none;
+
+                li {
+                    a {
+						color: $nearly-black;
+                        text-decoration: none;
+                        opacity: .8;
+                        text-transform: uppercase;
+                    }
+                }
+            }
+        }
+
+		#colour-switch-wrapper {
+			width: 100px;
+			height: 50px;
+
+			.colour-switch {
+				//background-color: $dark-green;
+				display: flex;
+				justify-content: flex-start;
+				align-items: center;
+				width: 100%;
+				padding: .5rem;
+				border: 2px solid $dark-green;
+				border-radius: 10rem;
+				box-shadow: $shadow;
+
+				.pill {
+					background-color: $dark-green;
+					padding: 1rem;
+					border: 1px solid $dark-green;
+					border-radius: 50%;
+					box-shadow: $shadow;
+					width: 30px;
+
+					.pill-inner {
+
+					}
+				}
+			}
+		}
+
+		.burger-wrapper {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding: 0;
+			background-color: white !important;
+			cursor: pointer;
+			@include md {
+				width: 25%;
+				justify-content: normal;
+			}
+			@include lg {
+				display: none;
+			}
+		}
+    }
+}

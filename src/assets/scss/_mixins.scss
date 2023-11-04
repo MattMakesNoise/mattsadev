@@ -1,0 +1,74 @@
+@import "variables";
+
+// Media queries
+@mixin xs {
+    @media (min-width: map-get($breakpoints, "XS")) {
+        @content;
+    }
+}
+@mixin sm {
+    @media (min-width: map-get($breakpoints, "SM")) {
+        @content;
+    }
+}
+@mixin md {
+    @media (min-width: map-get($breakpoints, "MD")) {
+        @content;
+    }
+}
+@mixin lg {
+    @media (min-width: map-get($breakpoints, "LG")) {
+        @content;
+    }
+}
+@mixin xl {
+    @media (min-width: map-get($breakpoints, "XL")) {
+        @content;
+    }
+}
+@mixin xxl {
+    @media (min-width: map-get($breakpoints, "XXL")) {
+        @content;
+    }
+}
+@mixin breakpoint($bp: 0) {
+    @media (min-width: $bp) {
+        @content;
+    }
+}
+
+// Buttons
+@mixin btn($colour) {
+	display: inline-block;
+	background-color: $colour;
+	color: $nearly-white;
+	padding: 1rem 2rem;
+	border: 1px solid $colour;
+	border-radius: $bord-rad;
+	box-shadow: $shadow;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all .1s ease-in-out;
+
+	&:hover {
+		background-color: $nearly-white;
+		color: $colour;
+	}
+
+	&:active {
+		transform: scale(0.99);
+	}
+}
+
+// Cards
+@mixin card {
+	background-color: $very-light-grey;
+	border: 1px solid $very-light-grey;
+	border-radius: $bord-rad;
+	box-shadow: $shadow;
+	padding: 2rem;
+	margin-bottom: 2rem;
+}

@@ -1,0 +1,53 @@
+@import "../variables", "../mixins";
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.75px;
+}
+
+body {
+	color: $nearly-black;
+}
+
+#page-wrapper {
+	background-color: $nearly-white;
+}
+
+/*
+ * BUTTONS
+ */
+.btn-yellow {
+	@include btn($yellow);
+}
+
+.btn-light-green {
+	@include btn($light-green);
+}
+
+.btn-dark-green {
+	@include btn($dark-green);
+}
+
+.btn-light-blue {
+	@include btn($light-blue);
+}
+
+.btn-dark-blue {
+	@include btn($dark-blue);
+}
+
+/**
+ * CARDS
+ */
+.card {
+	@include card;
+}
