@@ -1,58 +1,89 @@
 @import "../../variables", "../../mixins";
 
 .content-wrapper {
+	display: flex;
 	max-width: 1440px;
 	margin: 0 auto;
 	padding: 2rem 1rem;
 	min-height: 100vh;
 
-	.entry-header {
-		margin-bottom: 1rem;
-
-		.entry-title {
-			margin-bottom: 1rem;
-
-			a {
-				text-decoration: none;
-				color: $nearly-black;
-			}
-		}
-
-		.entry-meta {
-			color: $nearly-black;
-			opacity: .8;
-			font-size: .9rem;
-			text-transform: capitalize;
-
-			span a,
-			span span a {
-				color: $dark-green;
-				text-decoration: none;
-			}
-		}
+	.site-main {
+		flex-basis: 66.6%;
+		@include card;
+		margin-right: 1rem;
 	}
 
-	.entry-content {
-		margin-bottom: 2rem;
+	.widget-area {
+		flex-basis: 33.4%;
+		@include card;
 	}
 
-	.entry-footer {
+	article {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		margin-bottom: 2rem;
+		padding-bottom: 1rem;
+		border-bottom: 5px solid $very-light-grey;
 
-		span a {
-			color: $dark-green;
-			text-decoration: none;
+		.featured-img-wrapper {
+			flex-basis: 33.4%;
+			margin-right: 2rem;
+			border-radius: $bord-rad;
+			overflow: hidden;
+
+			a img {
+				max-width: 100%;
+				height: auto;
+			}
 		}
 
-		.cat-links {
-			margin-bottom: 1rem;
+		.post-content-wrapper {
+			flex-basis: 66.6%;
+
+			.entry-header {
+				margin-bottom: 1rem;
+
+				.entry-title {
+					margin-bottom: 1rem;
+
+					a {
+						text-decoration: none;
+						color: $nearly-black;
+					}
+				}
+
+				.entry-meta {
+					color: $nearly-black;
+					opacity: .8;
+					font-size: .9rem;
+					text-transform: capitalize;
+
+					span a,
+					span span a {
+						color: $dark-green;
+						text-decoration: none;
+					}
+				}
+			}
+
+			.entry-footer {
+				display: flex;
+				flex-direction: column;
+
+				span a {
+					color: $dark-green;
+					text-decoration: none;
+				}
+
+				.cat-links {
+					margin-bottom: 1rem;
+				}
+
+				.comments-link {
+
+				}
+			}
 		}
-
-		.comments-link {
-
-		}
-
 	}
 }
 

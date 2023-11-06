@@ -1,6 +1,7 @@
 @import "../../variables", "../../mixins";
 
 #site-header {
+	background-color: $nearly-white;
     min-height: 100px;
     display: flex;
     justify-content: center;
