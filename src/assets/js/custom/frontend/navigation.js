@@ -10,9 +10,8 @@
 
 	if(!burgerBtn.data('click-bound')) {
 		burgerBtn.on('click', function() {
-			console.log('Clicked!');
-			slideOut.css('display', 'block').css('width', '250px');
-			pageWrapper.css('margin-left', '250px');
+			slideOut.css('display', 'block').css('width', '150px');
+			pageWrapper.css('left', '150px');
 			burgerBtn.data('click-bound', true);
 			overlay.css('display', 'block');
 		});
@@ -20,7 +19,7 @@
 
 	closeBtn.on('click', function() {
 		slideOut.css('width', '0');
-		pageWrapper.css('margin-left', '0').css('opacity', '1');
+		pageWrapper.css('left', '0').css('opacity', '1');
 		overlay.css('display', 'none');
 	});
 

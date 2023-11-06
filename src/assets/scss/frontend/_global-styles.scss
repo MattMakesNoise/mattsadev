@@ -20,6 +20,8 @@ body {
 
 #page-wrapper {
 	background-color: $nearly-white;
+	position: relative;
+	transition: left .5s;
 }
 
 /*

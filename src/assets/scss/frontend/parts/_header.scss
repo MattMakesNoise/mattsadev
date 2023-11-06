@@ -196,16 +196,12 @@
 			}
 		}
 	}
-
 }
 
-#page-wrapper {
-	transition: margin-left .5s;
-}
 #overlay {
 	display: none;
 	position: absolute;
-	width: calc(100% - 250px);
+	width: calc(100% - 150px);
 	height: 100%;
 	z-index: 9998;
 	background-color: rgba(0,0,0,0.8);

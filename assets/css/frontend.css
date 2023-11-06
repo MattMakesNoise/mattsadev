@@ -14,7 +14,9 @@ body {
   color: #0F0F0F; }
 
 #page-wrapper {
-  background-color: #FCFCFC; }
+  background-color: #FCFCFC;
+  position: relative;
+  transition: left .5s; }
 
 /*
  * BUTTONS
@@ -275,13 +277,10 @@ body {
           text-decoration: none;
           cursor: pointer; }
 
-#page-wrapper {
-  transition: margin-left .5s; }
-
 #overlay {
   display: none;
   position: absolute;
-  width: calc(100% - 250px);
+  width: calc(100% - 150px);
   height: 100%;
   z-index: 9998;
   background-color: rgba(0, 0, 0, 0.8); }
