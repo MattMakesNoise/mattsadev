@@ -6,6 +6,7 @@
  */
 namespace Mattsadev;
 
+use Mattsadev\Inc\Search;
 use Mattsadev\Inc\Template_Tags;
 
 /**
@@ -108,6 +109,8 @@ final class Main {
 		add_action( 'wp_footer',             [ $this, 'output_livereload_script' ] );
 
 		Template_Tags::init();
+
+		Search::init();
 	}
 
 	/**
@@ -244,6 +247,15 @@ final class Main {
 				[ 'jquery' ],
 				$this->version,
 				true
+			);
+
+			wp_localize_script(
+				'mattsadev-frontend',
+				'ajax_object',
+				[
+					'ajax_url' => admin_url('admin-ajax.php'),
+					'nonce'   => wp_create_nonce('ajax-nonce'),
+				]
 			);
 		} else {
 			wp_enqueue_script(

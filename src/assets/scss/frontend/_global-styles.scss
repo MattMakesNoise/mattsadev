@@ -53,3 +53,16 @@ body {
 .card {
 	@include card;
 }
+
+/**
+ * LINKS
+ */
+a {
+	@include link;
+}
+
+li {
+	list-style-type: none;
+}
+
+
