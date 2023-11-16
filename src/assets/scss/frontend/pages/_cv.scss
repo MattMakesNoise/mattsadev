@@ -1,0 +1,22 @@
+body.cv {
+	#primary {
+
+		.cards-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: center;
+
+			.card {
+				.card-logo-wrapper {
+					.card-logo {
+						img {
+							max-width: 300px;
+							height: auto;
+						}
+					}
+				}
+			}
+		}
+	}
+}
