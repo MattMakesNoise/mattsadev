@@ -8,6 +8,7 @@ namespace Mattsadev;
 
 use Mattsadev\Inc\Search;
 use Mattsadev\Inc\Template_Tags;
+use Mattsadev\Inc\Skills;
 
 /**
  * @since 0.1.0
@@ -78,9 +79,10 @@ final class Main {
 	/**
 	 * Setup theme.
 	 *
+	 * @return void
 	 * @since 0.1.0
 	 */
-	public function init() {
+	public function init(): void {
 		$theme = wp_get_theme();
 
 		$this->version = $theme->get( 'Version' );
@@ -96,14 +98,15 @@ final class Main {
 	/**
 	 * Init theme hooks.
 	 *
+	 * @return void
 	 * @since 0.1.0
 	 */
-	protected function init_hooks() {
+	protected function init_hooks(): void {
 		add_action( 'wp_enqueue_scripts',    [ $this, 'wp_enqueue_scripts' ], 999 );
 		add_action( 'login_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ], 999);
 		add_action( 'after_setup_theme',     [ $this, 'early_setup' ], 9 );
 		add_action( 'after_setup_theme',     [ $this, 'setup' ], 20 );
-		add_action( 'widgets_init', 		 [ $this, 'register_sidebars' ] );
+		add_action( 'widgets_init', 		   [ $this, 'register_sidebars' ] );
 		add_action( 'init',                  [ $this, 'wp_init' ] );
 		add_filter( 'body_class',            [ $this, 'add_slug_to_body_class' ], 10, 1 );
 		add_action( 'wp_footer',             [ $this, 'output_livereload_script' ] );
@@ -111,6 +114,9 @@ final class Main {
 		Template_Tags::init();
 
 		Search::init();
+
+		// Skills custom post type and fields
+		Skills::init();
 	}
 
 	/**
@@ -300,6 +306,8 @@ final class Main {
 			)
 		);
 	}
+
+
 
 	/**
 	 * Add page slug to body class.
