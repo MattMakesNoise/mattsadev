@@ -16,9 +16,10 @@ body.cv {
 					.skill-card-logo {
 						img {
 							max-width: 300px;
-							height: auto;
+							max-height: 300px;
 							opacity: .9;
 							filter: grayscale(60%);
+							transition: opacity .5s ease, filter .5s ease;
 						}
 					}
 				}
@@ -37,6 +38,7 @@ body.cv {
 			    .skill-card-header,
 				.skill-card-body {
 					display: flex;
+					flex-wrap: wrap;
 			        justify-content: center;
 			        align-items: center;
 			        padding: 0 1rem;
@@ -46,6 +48,7 @@ body.cv {
 					p {
 						max-width: 300px;
 			            margin-bottom: 0;
+						word-wrap: break-word;
 			        }
 			    }
 
@@ -62,10 +65,55 @@ body.cv {
 					.level {
 						width: 50px;
 						height: 20px;
-						border: 1px solid $nearly-black;
-						border-radius: 3px;
+						border: 1px groove $slightly-darker-grey;
+						border-radius: 7px;
 						box-shadow: $shadow;
-						background-color: $dark-green;
+						position: relative;
+						overflow: hidden;
+
+						&::before {
+							content: '';
+							position: absolute;
+							top: 50%;
+							left: 50%;
+							width: 100%;
+							height: 100%;
+							border-radius: inherit;
+							transform: translate(-50%, -50%);
+							background: linear-gradient(rgba(255,255,255,.2), rgba(255,255,255,.1));
+							box-shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
+							z-index: 1;
+						}
+
+						.level-fill {
+							height: 100%;
+							position: relative;
+							z-index: 2;
+						}
+					}
+
+					.level-full {
+						.level-fill {
+							background: $dark-green-linear;
+						}
+					}
+
+					.level-partial {
+						display: flex;
+
+						div:nth-child(1) {
+							background: $dark-green-linear;
+						}
+
+						div:nth-child(2) {
+							background-color: $nearly-white;
+						}
+					}
+
+					.level-empty {
+						.level-fill {
+							background-color: $nearly-white;
+						}
 					}
 				}
 			}

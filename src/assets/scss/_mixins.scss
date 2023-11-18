@@ -71,6 +71,11 @@
 	box-shadow: $shadow;
 	padding: 2rem;
 	margin-bottom: 2rem;
+	transition: transform .3s ease;
+
+	&:hover {
+		transform: translateY(-5px);
+	}
 }
 
 // Links

@@ -130,7 +130,10 @@ body {
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 2rem;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  transition: transform .3s ease; }
+  .card:hover {
+    transform: translateY(-5px); }
 
 /**
  * LINKS
@@ -156,18 +159,23 @@ body.cv #primary .skills-cards-container {
     border-radius: 10px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     padding: 2rem;
-    margin-bottom: 2rem; }
+    margin-bottom: 2rem;
+    transition: transform .3s ease; }
+    body.cv #primary .skills-cards-container .skill-card:hover {
+      transform: translateY(-5px); }
     body.cv #primary .skills-cards-container .skill-card .skill-card-logo-wrapper .skill-card-logo img {
       max-width: 300px;
-      height: auto;
+      max-height: 300px;
       opacity: .9;
-      filter: grayscale(60%); }
+      filter: grayscale(60%);
+      transition: opacity .5s ease, filter .5s ease; }
     body.cv #primary .skills-cards-container .skill-card:hover .skill-card-logo-wrapper .skill-card-logo img {
       opacity: 1;
       filter: grayscale(0%); }
     body.cv #primary .skills-cards-container .skill-card .skill-card-header,
     body.cv #primary .skills-cards-container .skill-card .skill-card-body {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       padding: 0 1rem;
@@ -177,7 +185,8 @@ body.cv #primary .skills-cards-container {
       body.cv #primary .skills-cards-container .skill-card .skill-card-body h2,
       body.cv #primary .skills-cards-container .skill-card .skill-card-body p {
         max-width: 300px;
-        margin-bottom: 0; }
+        margin-bottom: 0;
+        word-wrap: break-word; }
     body.cv #primary .skills-cards-container .skill-card .skill-level-container {
       max-width: 300px;
       margin: 1rem 0; }
@@ -188,10 +197,37 @@ body.cv #primary .skills-cards-container {
       body.cv #primary .skills-cards-container .skill-card .skill-level-container .level {
         width: 50px;
         height: 20px;
-        border: 1px solid #0F0F0F;
-        border-radius: 3px;
+        border: 1px groove #dedede;
+        border-radius: 7px;
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-        background-color: #2FB279; }
+        position: relative;
+        overflow: hidden; }
+        body.cv #primary .skills-cards-container .skill-card .skill-level-container .level::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 100%;
+          height: 100%;
+          border-radius: inherit;
+          transform: translate(-50%, -50%);
+          background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.1));
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+          z-index: 1; }
+        body.cv #primary .skills-cards-container .skill-card .skill-level-container .level .level-fill {
+          height: 100%;
+          position: relative;
+          z-index: 2; }
+      body.cv #primary .skills-cards-container .skill-card .skill-level-container .level-full .level-fill {
+        background: linear-gradient(45deg, #2FB279, #46ce93); }
+      body.cv #primary .skills-cards-container .skill-card .skill-level-container .level-partial {
+        display: flex; }
+        body.cv #primary .skills-cards-container .skill-card .skill-level-container .level-partial div:nth-child(1) {
+          background: linear-gradient(45deg, #2FB279, #46ce93); }
+        body.cv #primary .skills-cards-container .skill-card .skill-level-container .level-partial div:nth-child(2) {
+          background-color: #FCFCFC; }
+      body.cv #primary .skills-cards-container .skill-card .skill-level-container .level-empty .level-fill {
+        background-color: #FCFCFC; }
 
 #site-header {
   background-color: #FCFCFC;
@@ -365,10 +401,13 @@ body.cv #primary .skills-cards-container {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     padding: 2rem;
     margin-bottom: 2rem;
+    transition: transform .3s ease;
     display: flex;
     flex-direction: row;
     margin-bottom: 2rem;
     padding-bottom: 1rem; }
+    .content-wrapper article:hover {
+      transform: translateY(-5px); }
     .content-wrapper article .featured-img-wrapper {
       flex-basis: 33.4%;
       margin-right: 2rem;
@@ -410,7 +449,10 @@ body.cv #primary .skills-cards-container {
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   padding: 2rem;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  transition: transform .3s ease; }
+  .widget-area .widget:hover {
+    transform: translateY(-5px); }
   .widget-area .widget .wp-block-heading {
     margin-bottom: 3rem;
     padding: .5rem 0;

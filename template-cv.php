@@ -22,7 +22,8 @@ if ( $skills->have_posts() ) :
 
 		</div>
 		<div class="blurb">
-
+			<p>A keen interest in both front-end and back-end development, strong communication skills, attention to detail and a fantastic work ethic.</p>
+			<p>Having always been intrigued by web development and following a Covid related redundancy, I decided to pursue this further and enrolled on the Netmatters SCS Scheme. This helped me to build a solid foundation in the skills required for entry into the industry.</p>
 		</div>
 		<div class="skills-cards-container">
 			<?php
@@ -37,8 +38,37 @@ if ( $skills->have_posts() ) :
 				</div>
 				<div class="skill-level-container">
 					<div class="level-container">
-						<div class="level level-one"></div><div class="level level-two"></div><div class="level level-three"></div><div class="level level-four"></div><div class="level level-five"></div>
-<!--						<div class="level">--><?php //echo get_post_meta( get_the_ID(), 'skill_level', true ) ?><!--</div>-->
+						<?php
+						$skill_level = get_post_meta( get_the_ID(), 'skill_level', true );
+
+						// Calculate the number of fully filled pills
+						$full_pills = floor( $skill_level );
+
+						// Calculate the remaining percentage for a partially filled pill
+						$partial_fill = ( $skill_level - $full_pills ) * 100;
+
+						// Output fully filled pills
+						for ( $i = 0; $i < $full_pills; $i++ ) {
+							echo '<div class="level level-full">
+									<div class="level-fill"></div>
+								  </div>';
+						}
+
+						// Output partially filled pill
+						if ( $partial_fill > 0 ) {
+							echo '<div class="level level-partial">
+									<div class="level-fill" style="width:' . $partial_fill . '%;"></div>
+									<div class="level-fill" style="width:' . $partial_fill . '%;"></div>
+								  </div>';
+						}
+
+						// Output remaining empty pills
+						for ( $i = $full_pills + ($partial_fill > 0 ? 1 : 0); $i < 5; $i++ ) {
+							echo '<div class="level level-empty">
+                					<div class="level-fill"></div>
+              					  </div>';
+						}
+						?>
 					</div>
 				</div>
 				<div class="skill-card-header">

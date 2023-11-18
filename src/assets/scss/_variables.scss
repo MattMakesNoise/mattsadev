@@ -18,6 +18,9 @@ $dark-blue: #2F4858;
 $nearly-black: #0F0F0F;
 $nearly-white: #FCFCFC;
 $very-light-grey: #F7F7F7;
+$slightly-darker-grey: mix(#000, $very-light-grey, 10%);
+
+$dark-green-linear: linear-gradient(45deg, #2FB279, lighten(#2FB279, 10%));
 
 $bord-rad: 10px;
 $shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
