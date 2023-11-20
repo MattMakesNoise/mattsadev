@@ -37,6 +37,15 @@
     }
 }
 
+// Container
+@mixin container {
+	background-color: $nearly-white;
+	border: 1px solid $nearly-white;
+	border-radius: $bord-rad;
+	box-shadow: $shadow;
+	padding: 2rem;
+}
+
 // Buttons
 @mixin btn($colour) {
 	display: inline-block;
