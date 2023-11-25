@@ -19,6 +19,7 @@ $nearly-black: #0F0F0F;
 $nearly-white: #FCFCFC;
 $very-light-grey: #F7F7F7;
 $slightly-darker-grey: mix(#000, $very-light-grey, 10%);
+$even-darker-grey: mix(#000, $very-light-grey, 35%);
 
 $dark-green-linear: linear-gradient(45deg, #2FB279, lighten(#2FB279, 10%));
 $lighter-dark-green-linear: linear-gradient(45deg, #4bcf96, lighten(#4bcf96, 10%));

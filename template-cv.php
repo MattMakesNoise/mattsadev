@@ -20,15 +20,25 @@ if ( $skills->have_posts() ) :
     <div class="content">
 		<aside id="cv-sidebar-container">
 			<div class="sidebar-header">
-				<img src="<?php echo get_template_directory_uri() . '/src/assets/images/matt-sade.jpg' ?>" alt="">
+				<img src="<?php echo get_template_directory_uri() . '/src/assets/images/IMG_1677.JPG' ?>" alt="">
 			</div>
 			<div class="contact-container">
-				<h3>Contact</h3>
+				<div class="contact-header">
+					<h3>Connect</h3>
+				</div>
 				<div class="contacts-container">
+					<div class="linkedin-container">
+						<i class="fa fa-linkedin-square" aria-hidden="true"></i><a href="#" target="_blank">LinkedIn</a>
+					</div>
+					<div class="twitter-container">
+						<i class="fa fa-twitter-square" aria-hidden="true"></i><a href="#" target="_blank">Twitter</a>
+					</div>
 				</div>
 			</div>
 			<div class="skills-key-container">
-				<h3>Skills Key</h3>
+				<div class="skills-key-header">
+					<h3>Skills Key</h3>
+				</div>
 				<div class="skills-level">
 					<h4>Expert</h4>
 					<div class="skill-level-container">
@@ -141,7 +151,41 @@ if ( $skills->have_posts() ) :
 				</div>
 			</div>
 			<div class="education-container">
-
+				<div class="education-header">
+					<h3>Education</h3>
+				</div>
+				<div class="education-body">
+					<div class="education-item">
+						<h4>Netmatters SCS Scheme</h4>
+						<p>March 2021 - May 2022</p>
+						<ul>
+							<li>Intensive specially tailored training programme under the supervision of senior developers. 40 hours per week to simulate employment as a web developer and prepare for employment.</li>
+							<li>Studied front-end and back-end development, UI/UX design, OOP and databases.</li>
+						</ul>
+					</div>
+					<div class="education-item">
+						<h4>Confetti School of Recording Technology, Nottingham</h4>
+						<p>2001 - 2003</p>
+						<ul>
+							<li>HND Sound Engineering and Music Production - Merit</li>
+						</ul>
+					</div>
+					<div class="education-item">
+						<h4>Hewett School and Access to Music, Norwich</h4>
+						<p>1998 - 2001</p>
+						<ul>
+							<li>BTEC in Contemporary and Popular Music - Merit</li>
+							<li>A Level Music Technology - C</li>
+						</ul>
+					</div>
+					<div class="education-item">
+						<h4>Reepham High School, Norfolk</h4>
+						<p>1993 - 1998</p>
+						<ul>
+							<li>9 GCSEs Grade A* to C including Maths and English</li>
+						</ul>
+					</div>
+				</div>
 			</div>
 		</aside>
 		<main id="primary" class="site-main">
