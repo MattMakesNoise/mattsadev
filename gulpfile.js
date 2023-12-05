@@ -12,7 +12,11 @@ const uglifyJS    = require('gulp-uglify');
 // Compile Sass
 function styles() {
 	//1. Where is my SCSS file?
-    return src('./src/assets/scss/**/*.scss', {sourcemaps: true})
+    return src(
+			'./src/assets/css/variables.css',
+			'./src/assets/scss/**/*.scss',
+			{sourcemaps: true}
+		)
         //2. Pass the file through compiler
         .pipe(sass().on('error', sass.logError)) // Throw shortened error if you make a mistake
         //3. Where is the compiled CSS output

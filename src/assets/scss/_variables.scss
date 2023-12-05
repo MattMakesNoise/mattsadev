@@ -10,14 +10,14 @@ $breakpoints: (
 );
 
 // Colours
-$yellow: #F5E13B;
-$light-green: #90CF59;
-$dark-green: #2FB279;
-$light-blue: #006B7C;
-$dark-blue: #2F4858;
-$nearly-black: #0F0F0F;
-$nearly-white: #FCFCFC;
-$very-light-grey: #F7F7F7;
+$primary: var(--primary);
+$secondary: var(--secondary);
+$light-green: var(--light-green);
+$light-blue: var(--light-blue);
+$dark-blue: var(--dark-blue);
+$text: var(--text);
+$bg-colour: var(--bg-colour);
+$bg-colour-darker: var(--bg-colour-darker);
 
 $bord-rad: 7px;
 $shadow: 0 2px 4px 0 rgba(0,0,0,0.1);
