@@ -65,10 +65,21 @@
 
 // Cards
 @mixin card {
-	background-color: $very-light-grey;
-	border: 1px solid $very-light-grey;
+	background-color: $nearly-white;
+	border: 1px solid $nearly-white;
 	border-radius: $bord-rad;
 	box-shadow: $shadow;
 	padding: 2rem;
 	margin-bottom: 2rem;
+}
+
+// Links
+@mixin link {
+	text-decoration: none;
+	color: $dark-green;
+	transition: all .1s ease-in-out;
+
+	&:hover {
+		color: $nearly-black;
+	}
 }

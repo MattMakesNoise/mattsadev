@@ -1,0 +1,46 @@
+@import "../../variables", "../../mixins";
+
+.widget-area {
+	.widget {
+		@include card;
+
+		.wp-block-heading {
+			margin-bottom: 3rem;
+			padding: .5rem 0;
+			display: inline;
+			border-bottom: 1px solid $dark-green;
+		}
+
+		.wp-block-latest-posts__list,
+		.wp-block-latest-comments,
+		.wp-block-archives-list,
+		.wp-block-categories-list {
+			margin-top: 2rem;
+		}
+
+		.wp-block-latest-posts__post-title {
+			margin-bottom: 1rem;
+		}
+	}
+
+	.widget_search {
+		form {
+			label {
+				display: none;
+			}
+
+			input {
+				width: 100%;
+				background-color: $very-light-grey;
+				padding: .5rem;
+				border: 1px solid $dark-green;
+				border-radius: $bord-rad;
+				box-shadow: $shadow;
+			}
+
+			.wp-block-search__button {
+				@include btn($dark-green);
+			}
+		}
+	}
+}

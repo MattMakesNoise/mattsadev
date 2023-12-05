@@ -19,7 +19,9 @@ body {
 }
 
 #page-wrapper {
-	background-color: $nearly-white;
+	background-color: $very-light-grey;
+	position: relative;
+	transition: left .5s;
 }
 
 /*
@@ -51,3 +53,16 @@ body {
 .card {
 	@include card;
 }
+
+/**
+ * LINKS
+ */
+a {
+	@include link;
+}
+
+li {
+	list-style-type: none;
+}
+
+
