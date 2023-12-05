@@ -10,14 +10,32 @@ $breakpoints: (
 );
 
 // Colours
-$primary: var(--primary);
-$secondary: var(--secondary);
-$light-green: var(--light-green);
-$light-blue: var(--light-blue);
-$dark-blue: var(--dark-blue);
-$text: var(--text);
-$bg-colour: var(--bg-colour);
-$bg-colour-darker: var(--bg-colour-darker);
+$primary: #2FB279;
+$secondary: #F5E13B;
+$light-green: #90CF59;
+$light-blue: #006B7C;
+$dark-blue: #2F4858;
+$text-light: #252627;
+$text-dark: #1d1b1b;
+$bg-colour: #FCFCFC;
+$bg-colour-darker: #F7F7F7;
+
+// Themes
+html[data-theme="light"] {
+	--primary: #{$primary};
+	--secondary: #{$secondary};
+	--text: #{$text-dark};
+	--bg-colour: #{$bg-colour};
+	--bg-colour-darker: #{$bg-colour-darker};
+}
+
+html[data-theme="dark"] {
+	--primary: #{$secondary};
+	--secondary: #{$primary};
+	--text: #{$bg-colour};
+	--bg-colour: #{$text-light};
+	--bg-colour-darker: #{$text-dark};
+}
 
 $bord-rad: 10px;
 $shadow: 0 2px 4px 0 rgba(0,0,0,0.1);

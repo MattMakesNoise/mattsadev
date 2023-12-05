@@ -46,19 +46,19 @@
 
 					a {
 						text-decoration: none;
-						color: $nearly-black;
+						color: var(--text);
 					}
 				}
 
 				.entry-meta {
-					color: $nearly-black;
+					color: var(--text);
 					opacity: .8;
 					font-size: .9rem;
 					text-transform: capitalize;
 
 					span a,
 					span span a {
-						color: $dark-green;
+						color: var(--primary);
 						text-decoration: none;
 					}
 				}
@@ -69,7 +69,7 @@
 				flex-direction: column;
 
 				span a {
-					color: $dark-green;
+					color: var(--primary);
 					text-decoration: none;
 				}
 

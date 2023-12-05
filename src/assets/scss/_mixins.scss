@@ -41,7 +41,7 @@
 @mixin btn($colour) {
 	display: inline-block;
 	background-color: $colour;
-	color: $nearly-white;
+	color: var(--bg-colour);
 	padding: 1rem 2rem;
 	border: 1px solid $colour;
 	border-radius: $bord-rad;
@@ -54,7 +54,7 @@
 	transition: all .1s ease-in-out;
 
 	&:hover {
-		background-color: $nearly-white;
+		background-color: var(--bg-colour);
 		color: $colour;
 	}
 
@@ -65,8 +65,8 @@
 
 // Cards
 @mixin card {
-	background-color: $nearly-white;
-	border: 1px solid $nearly-white;
+	background-color: var(--bg-colour);
+	border: 1px solid var(--bg-colour);
 	border-radius: $bord-rad;
 	box-shadow: $shadow;
 	padding: 2rem;
@@ -76,10 +76,10 @@
 // Links
 @mixin link {
 	text-decoration: none;
-	color: $dark-green;
+	color: var(--primary);
 	transition: all .1s ease-in-out;
 
 	&:hover {
-		color: $nearly-black;
+		color: var(--text);
 	}
 }

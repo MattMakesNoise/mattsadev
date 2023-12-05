@@ -1,14 +1,17 @@
-:root {
-  --primary: #2FB279;
-  /* dark green */
-  --secondary: #F5E13B;
-  /* yellow */
-  --light-green: #90CF59;
-  --light-blue: #006B7C;
-  --dark-blue: #2F4858;
-  --text: #0F0F0F;
-  /* near black */
-  --bg-colour: #FCFCFC;
-  /* near white */
-  --bg-colour-darker: #F7F7F7;
-  /* v light grey */ }
+/*:root {*/
+/*	--primary: #2FB279; !* dark green *!*/
+/*	--secondary: #F5E13B; !* yellow *!*/
+/*	--light-green: #90CF59;*/
+/*	--light-blue: #006B7C;*/
+/*	--dark-blue: #2F4858;*/
+/*	--text: #0F0F0F; !* near black *!*/
+/*	--bg-colour: #FCFCFC; !* near white *!*/
+/*	--bg-colour-darker: #F7F7F7; !* v light grey *!*/
+/*}*/
+/*.dark-mode {*/
+/*	--primary: #F5E13B; !* Dark mode color *!*/
+/*	--secondary: #2FB279;*/
+/*	--text: #FCFCFC;*/
+/*	--bg-colour: #0F0F0F;*/
+/*	--bg-colour-darker: #2F4858;*/
+/*}*/
