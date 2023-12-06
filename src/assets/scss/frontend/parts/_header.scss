@@ -1,7 +1,7 @@
 @import "../../variables", "../../mixins";
 
 #site-header {
-	background-color: $nearly-white;
+	background-color: var(--bg-colour);
     min-height: 100px;
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			background-color: white !important;
+			background-color: var(--bg-colour) !important;
 			padding: 0;
 			border: none;
 			cursor: pointer;
@@ -49,7 +49,7 @@
 					height: 5px;
 					width: 30px;
 					border-radius: 3px;
-					background-color: $dark-green;
+					background-color: var(--primary);
 				}
 
 				.burger-inner::before {
@@ -76,7 +76,7 @@
 			}
 
 			.site-title a {
-				color: $dark-green;
+				color: var(--primary);
 				text-decoration: none;
 				text-transform: uppercase;
 			}
@@ -111,7 +111,7 @@
 					}
 
                     a {
-						color: $nearly-black;
+						color: var(--text);
 						padding: 1rem 0;
                         text-decoration: none;
                         text-transform: uppercase;
@@ -121,7 +121,11 @@
 
 				.current_page_item {
 					display: inline;
-					border-bottom: 1px solid $dark-green;
+					border-bottom: 1px solid var(--primary);
+
+					a {
+						color: var(--primary);
+					}
 				}
             }
         }
@@ -130,6 +134,11 @@
 			order: 3;
 			width: 25%;
 
+			#switch,
+			.switch-label {
+				display: none;
+			}
+
 			.colour-switch {
 				float: right;
 				display: flex;
@@ -137,14 +146,14 @@
 				align-items: center;
 				width: 3.125rem;
 				padding: .25rem;
-				border: 2px solid $dark-green;
+				border: 2px solid var(--primary);
 				border-radius: 5rem;
 				box-shadow: $shadow;
 
 				.pill {
-					background-color: $dark-green;
+					background-color: var(--primary);
 					padding: .5rem;
-					border: 1px solid $dark-green;
+					border: 1px solid var(--primary);
 					border-radius: 50%;
 					box-shadow: $shadow;
 					width: 1rem;
@@ -160,7 +169,7 @@
 
 #slideout {
 	display: none;
-	background-color: $dark-green;
+	background-color: var(--primary);
 	height: 100vh;
 	width: 0;
 	position: fixed;
@@ -173,7 +182,7 @@
 		padding: 1rem;
 
 		.close-button {
-			color: $nearly-white;
+			color: var(--bg-colour);
 			margin-bottom: 2rem;
 			font-size: 3rem;
 			text-decoration: none;
@@ -188,7 +197,7 @@
 					margin-bottom: 1rem;
 
 					a {
-						color: $nearly-white;
+						color: var(--bg-colour);
 						text-transform: uppercase;
 						text-decoration: none;
 						cursor: pointer;

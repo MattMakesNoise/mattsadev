@@ -75,6 +75,8 @@
 			</nav><!-- #site-navigation -->
 
 			<div id="colour-switch-wrapper">
+				<input type="checkbox" name="theme_switch" id="switch">
+				<label for="switch" class="switch-label">Toggle Colour Mode</label>
 				<div class="colour-switch">
 					<div class="pill">
 						<span class="pill-inner"></span>

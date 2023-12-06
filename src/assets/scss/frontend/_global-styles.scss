@@ -15,37 +15,37 @@ html {
 }
 
 body {
-	color: $nearly-black;
+	color: var(--text);
 }
 
 #page-wrapper {
-	background-color: $very-light-grey;
+	background-color: var(--bg-colour-darker);
 	position: relative;
 	transition: left .5s;
 }
 
-/*
- * BUTTONS
- */
-.btn-yellow {
-	@include btn($yellow);
-}
-
-.btn-light-green {
-	@include btn($light-green);
-}
-
-.btn-dark-green {
-	@include btn($dark-green);
-}
-
-.btn-light-blue {
-	@include btn($light-blue);
-}
-
-.btn-dark-blue {
-	@include btn($dark-blue);
-}
+///*
+// * BUTTONS
+// */
+//.btn-yellow {
+//	@include btn($yellow);
+//}
+//
+//.btn-light-green {
+//	@include btn($light-green);
+//}
+//
+//.btn-dark-green {
+//	@include btn($dark-green);
+//}
+//
+//.btn-light-blue {
+//	@include btn($light-blue);
+//}
+//
+//.btn-dark-blue {
+//	@include btn($dark-blue);
+//}
 
 /**
  * CARDS
