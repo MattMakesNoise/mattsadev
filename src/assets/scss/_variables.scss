@@ -11,18 +11,19 @@ $breakpoints: (
 
 // Colours
 $primary: #2FB279;
+$primary-lighter: #2FB279;
+$primary-linear: linear-gradient(45deg, $primary, $primary-lighter);
+$primary-lighter-linear: linear-gradient(45deg, $primary-lighter, lighten($primary-lighter, 20%));
 $secondary: #F5E13B;
-$light-green: #90CF59;
+$secondary-lighter: #F9ED89;
+$secondary-linear: linear-gradient(45deg, $secondary, $secondary-lighter);
+$secondary-lighter-linear: linear-gradient(45deg, $secondary-lighter, lighten($secondary-lighter, 20%));
 $light-blue: #006B7C;
 $dark-blue: #2F4858;
-$nearly-black: #0F0F0F;
-$nearly-white: #FCFCFC;
 $very-light-grey: #F7F7F7;
 $slightly-darker-grey: mix(#000, $very-light-grey, 10%);
 $even-darker-grey: mix(#000, $very-light-grey, 35%);
 
-$dark-green-linear: linear-gradient(45deg, #2FB279, lighten(#2FB279, 10%));
-$lighter-dark-green-linear: linear-gradient(45deg, #4bcf96, lighten(#4bcf96, 10%));
 $text-light: #252627;
 $text-dark: #1d1b1b;
 $bg-colour: #FCFCFC;
@@ -31,7 +32,13 @@ $bg-colour-darker: #F7F7F7;
 // Themes
 html[data-theme="light"] {
 	--primary: #{$primary};
+	--primary-linear: #{$primary-linear};
+	--primary-lighter: #{$primary-lighter};
+	--primary-lighter-linear: #{$primary-lighter-linear};
 	--secondary: #{$secondary};
+	--secondary-linear: #{$secondary-linear};
+	--secondary-lighter: #{$secondary-lighter};
+	--secondary-lighter-linear: #{$secondary-lighter-linear};
 	--text: #{$text-dark};
 	--bg-colour: #{$bg-colour};
 	--bg-colour-darker: #{$bg-colour-darker};
@@ -39,7 +46,13 @@ html[data-theme="light"] {
 
 html[data-theme="dark"] {
 	--primary: #{$secondary};
+	--primary-linear: #{$secondary-linear};
+	--primary-lighter: #{$secondary-lighter};
+	--primary-lighter-linear: #{$secondary-lighter-linear};
 	--secondary: #{$primary};
+	--secondary-linear: #{$primary-linear};
+	--secondary-lighter: #{$primary-lighter};
+	--secondary-lighter-linear: #{$primary-lighter-linear};
 	--text: #{$bg-colour};
 	--bg-colour: #{$text-light};
 	--bg-colour-darker: #{$text-dark};

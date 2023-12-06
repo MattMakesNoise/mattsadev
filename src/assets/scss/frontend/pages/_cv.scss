@@ -22,7 +22,7 @@ body.cv {
 			h3 {
 				padding-bottom: .25rem;
 				display: inline;
-				border-bottom: 3px solid $dark-green;
+				border-bottom: 3px solid var(--primary);
 			}
 
 			.sidebar-header,
@@ -57,7 +57,7 @@ body.cv {
 
 			.skills-level {
 				h4 {
-					color: $dark-green;
+					color: var(--primary);
 					font-weight: 500;
 				}
 			}
@@ -76,7 +76,7 @@ body.cv {
 						}
 
 						h4 {
-							color: $dark-green;
+							color: var(--primary);
 							font-weight: 400;
 						}
 
@@ -213,7 +213,7 @@ body.cv {
 
 	.level-full {
 		.level-fill {
-			background: $dark-green-linear;
+			background: var(--primary-linear);
 		}
 	}
 
@@ -221,19 +221,19 @@ body.cv {
 		display: flex;
 
 		div:nth-child(1) {
-			background: $dark-green-linear;
+			background: var(--primary-linear);
 		}
 
 		div:nth-child(2) {
-			background: $lighter-dark-green-linear;
-			opacity: .7;
+			background: var(--primary-lighter-linear);
+			opacity: .5;
 		}
 	}
 
 	.level-empty {
 		.level-fill {
-			background: $lighter-dark-green-linear;
-			opacity: .7;
+			background: var(--primary-lighter-linear);
+			opacity: .5;
 		}
 	}
 }
