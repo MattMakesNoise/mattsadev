@@ -149,6 +149,9 @@ a {
 li {
   list-style-type: none; }
 
+p {
+  margin-bottom: .5rem; }
+
 html[data-theme="light"] {
   --primary: #2FB279;
   --primary-linear: linear-gradient(45deg, #2FB279, #2FB279);
@@ -251,7 +254,7 @@ body.cv .content {
       margin-bottom: 1rem; }
     body.cv .content #cv-sidebar-container .education-container .education-body .education-item {
       margin-bottom: 1rem; }
-      body.cv .content #cv-sidebar-container .education-container .education-body .education-item h4, body.cv .content #cv-sidebar-container .education-container .education-body .education-item p {
+      body.cv .content #cv-sidebar-container .education-container .education-body .education-item h4 {
         margin-bottom: .5rem; }
       body.cv .content #cv-sidebar-container .education-container .education-body .education-item h4 {
         color: var(--primary);
@@ -262,6 +265,10 @@ body.cv .content {
         margin-bottom: .5rem;
         margin-left: 1.5rem;
         list-style-type: initial; }
+  body.cv .content #primary h2 {
+    padding-bottom: .25rem;
+    display: inline;
+    border-bottom: 3px solid var(--primary); }
   body.cv .content #primary .summary-container {
     background-color: var(--bg-colour);
     border: 1px solid var(--bg-colour);
@@ -269,10 +276,8 @@ body.cv .content {
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     padding: 2rem;
     margin-bottom: 1rem; }
-    body.cv .content #primary .summary-container .summary-heading {
-      margin-bottom: 1rem; }
-    body.cv .content #primary .summary-container .summary-body p {
-      margin-bottom: .5rem; }
+    body.cv .content #primary .summary-container .summary-body {
+      margin-top: 1.5rem; }
   body.cv .content #primary .skills-cards-container {
     display: flex;
     flex-wrap: wrap;
@@ -314,6 +319,27 @@ body.cv .content {
           max-width: 200px;
           margin-bottom: 0;
           word-wrap: break-word; }
+  body.cv .content #primary .experience-container {
+    background-color: var(--bg-colour);
+    border: 1px solid var(--bg-colour);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    padding: 2rem; }
+    body.cv .content #primary .experience-container .experience-body {
+      margin-top: 1.5rem; }
+      body.cv .content #primary .experience-container .experience-body .experience-item {
+        margin-bottom: 1rem; }
+        body.cv .content #primary .experience-container .experience-body .experience-item h4 {
+          margin-bottom: .5rem; }
+        body.cv .content #primary .experience-container .experience-body .experience-item h4 {
+          color: var(--primary);
+          font-weight: 400; }
+        body.cv .content #primary .experience-container .experience-body .experience-item p {
+          color: #a1a1a1; }
+        body.cv .content #primary .experience-container .experience-body .experience-item ul li {
+          margin-bottom: .5rem;
+          margin-left: 1.5rem;
+          list-style-type: initial; }
 
 .skill-level-container {
   max-width: 200px;

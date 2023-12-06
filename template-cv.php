@@ -261,6 +261,49 @@ if ( $skills->have_posts() ) :
 				endwhile;
 				?>
 			</div>
+			<div class="experience-container">
+				<h2 class="experience-heading">Experience</h2>
+				<div class="experience-body">
+					<div class="experience-item">
+						<h4>Zipline</h4>
+						<p>May 2022 - Nov 2023</p>
+						<ul>
+							<li>Intensive specially tailored training programme under the supervision of senior developers. 40 hours per week to simulate employment as a web developer and prepare for employment.</li>
+							<li>Studied front-end and back-end development, UI/UX design, OOP and databases.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="experience-body">
+					<div class="experience-item">
+						<h4>Freelance Website Administrator</h4>
+						<p>Sept 2021 - May 2022</p>
+						<ul>
+							<li>Intensive specially tailored training programme under the supervision of senior developers. 40 hours per week to simulate employment as a web developer and prepare for employment.</li>
+							<li>Studied front-end and back-end development, UI/UX design, OOP and databases.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="experience-body">
+					<div class="experience-item">
+						<h4>Freelance Sound Engineer and Tour Manager</h4>
+						<p>2003 - Present</p>
+						<ul>
+							<li>Intensive specially tailored training programme under the supervision of senior developers. 40 hours per week to simulate employment as a web developer and prepare for employment.</li>
+							<li>Studied front-end and back-end development, UI/UX design, OOP and databases.</li>
+						</ul>
+					</div>
+				</div>
+				<div class="experience-body">
+					<div class="experience-item">
+						<h4>Senior Technician</h4>
+						<p>2010 - 2019</p>
+						<ul>
+							<li>Intensive specially tailored training programme under the supervision of senior developers. 40 hours per week to simulate employment as a web developer and prepare for employment.</li>
+							<li>Studied front-end and back-end development, UI/UX design, OOP and databases.</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 		</main>
 	</div>
 

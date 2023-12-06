@@ -71,7 +71,7 @@ body.cv {
 					.education-item {
 						margin-bottom: 1rem;
 
-						h4, p {
+						h4 {
 							margin-bottom: .5rem;
 						}
 
@@ -100,18 +100,18 @@ body.cv {
 		 * MAIN CONTENT
 		 */
 		#primary {
+			h2 {
+				padding-bottom: .25rem;
+				display: inline;
+				border-bottom: 3px solid var(--primary);
+			}
+
 			.summary-container {
 				@include container;
 				margin-bottom: 1rem;
 
-				.summary-heading {
-					margin-bottom: 1rem;
-				}
-
 				.summary-body {
-					p {
-						margin-bottom: .5rem;
-					}
+					margin-top: 1.5rem;
 				}
 			}
 
@@ -163,6 +163,39 @@ body.cv {
 							max-width: 200px;
 							margin-bottom: 0;
 							word-wrap: break-word;
+						}
+					}
+				}
+			}
+
+			.experience-container {
+				@include container;
+
+				.experience-body {
+					margin-top: 1.5rem;
+
+					.experience-item {
+						margin-bottom: 1rem;
+
+						h4 {
+							margin-bottom: .5rem;
+						}
+
+						h4 {
+							color: var(--primary);
+							font-weight: 400;
+						}
+
+						p {
+							color: $even-darker-grey;
+						}
+
+						ul {
+							li {
+								margin-bottom: .5rem;
+								margin-left: 1.5rem;
+								list-style-type: initial;
+							}
 						}
 					}
 				}
