@@ -222,6 +222,8 @@ html[data-theme="dark"] {
         #site-header .header-wrapper .main-navigation ul .current_page_item {
           display: inline;
           border-bottom: 1px solid var(--primary); }
+          #site-header .header-wrapper .main-navigation ul .current_page_item a {
+            color: var(--primary); }
     #site-header .header-wrapper #colour-switch-wrapper {
       order: 3;
       width: 25%; }
@@ -422,6 +424,7 @@ html[data-theme="dark"] {
 .widget-area .widget_search form input {
   width: 100%;
   background-color: var(--bg-colour-darker);
+  color: var(--text);
   padding: .5rem;
   border: 1px solid var(--primary);
   border-radius: 10px;
