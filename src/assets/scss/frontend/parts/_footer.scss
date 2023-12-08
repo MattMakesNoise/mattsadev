@@ -1,0 +1,10 @@
+@import "../../variables", "../../mixins";
+
+.site-footer {
+	background-color: var(--bg-colour);
+	min-height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: $shadow;
+}

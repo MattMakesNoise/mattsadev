@@ -13,7 +13,7 @@
 	</div> <!-- .content-wrapper -->
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<p>&copy Matt Jones   ?></p>
+			<p>&copy Matt Jones <?php echo date("Y") ?></p>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

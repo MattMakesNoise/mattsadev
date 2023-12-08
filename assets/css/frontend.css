@@ -734,6 +734,66 @@ html[data-theme="dark"] {
   --bg-colour: #252627;
   --bg-colour-darker: #1d1b1b; }
 
+.site-footer {
+  background-color: var(--bg-colour);
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }
+
+html[data-theme="light"] {
+  --primary: #2FB279;
+  --primary-linear: linear-gradient(45deg, #2FB279, #2FB279);
+  --primary-lighter: #2FB279;
+  --primary-lighter-linear: linear-gradient(45deg, #2FB279, #6ed9aa);
+  --secondary: #F5E13B;
+  --secondary-linear: linear-gradient(45deg, #F5E13B, #F9ED89);
+  --secondary-lighter: #F9ED89;
+  --secondary-lighter-linear: linear-gradient(45deg, #F9ED89, #fefcea);
+  --text: #1d1b1b;
+  --bg-colour: #FCFCFC;
+  --bg-colour-darker: #F7F7F7; }
+
+html[data-theme="dark"] {
+  --primary: #F5E13B;
+  --primary-linear: linear-gradient(45deg, #F5E13B, #F9ED89);
+  --primary-lighter: #F9ED89;
+  --primary-lighter-linear: linear-gradient(45deg, #F9ED89, #fefcea);
+  --secondary: #2FB279;
+  --secondary-linear: linear-gradient(45deg, #2FB279, #2FB279);
+  --secondary-lighter: #2FB279;
+  --secondary-lighter-linear: linear-gradient(45deg, #2FB279, #6ed9aa);
+  --text: #FCFCFC;
+  --bg-colour: #252627;
+  --bg-colour-darker: #1d1b1b; }
+
+html[data-theme="light"] {
+  --primary: #2FB279;
+  --primary-linear: linear-gradient(45deg, #2FB279, #2FB279);
+  --primary-lighter: #2FB279;
+  --primary-lighter-linear: linear-gradient(45deg, #2FB279, #6ed9aa);
+  --secondary: #F5E13B;
+  --secondary-linear: linear-gradient(45deg, #F5E13B, #F9ED89);
+  --secondary-lighter: #F9ED89;
+  --secondary-lighter-linear: linear-gradient(45deg, #F9ED89, #fefcea);
+  --text: #1d1b1b;
+  --bg-colour: #FCFCFC;
+  --bg-colour-darker: #F7F7F7; }
+
+html[data-theme="dark"] {
+  --primary: #F5E13B;
+  --primary-linear: linear-gradient(45deg, #F5E13B, #F9ED89);
+  --primary-lighter: #F9ED89;
+  --primary-lighter-linear: linear-gradient(45deg, #F9ED89, #fefcea);
+  --secondary: #2FB279;
+  --secondary-linear: linear-gradient(45deg, #2FB279, #2FB279);
+  --secondary-lighter: #2FB279;
+  --secondary-lighter-linear: linear-gradient(45deg, #2FB279, #6ed9aa);
+  --text: #FCFCFC;
+  --bg-colour: #252627;
+  --bg-colour-darker: #1d1b1b; }
+
 .widget-area .widget {
   background-color: var(--bg-colour);
   border: 1px solid var(--bg-colour);
