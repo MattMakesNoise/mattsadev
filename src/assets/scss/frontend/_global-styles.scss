@@ -65,6 +65,12 @@ li {
 	list-style-type: none;
 }
 
+h2, h3, h4, h5, h6 {
+	padding-bottom: .5rem;
+	display: inline;
+	border-bottom: 3px solid var(--primary);
+}
+
 p {
 	margin-bottom: .5rem;
 }

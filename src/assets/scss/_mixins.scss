@@ -40,10 +40,11 @@
 // Container
 @mixin container {
 	background-color: var(--bg-colour);
+	margin-bottom: 2rem;
+	padding: 2rem;
 	border: 1px solid var(--bg-colour);
 	border-radius: $bord-rad;
 	box-shadow: $shadow;
-	padding: 2rem;
 }
 
 // Buttons
