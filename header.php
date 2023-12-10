@@ -79,7 +79,7 @@
 				<label for="switch" class="switch-label">Toggle Colour Mode</label>
 				<div class="colour-switch">
 					<div class="pill">
-						<span class="pill-inner"></span>
+						<span class="pill-inner"><i class="fa fa-sun-o" aria-hidden="true"></i><i class="fa fa-moon-o" aria-hidden="true"></i></span>
 					</div>
 				</div>
 			</div>

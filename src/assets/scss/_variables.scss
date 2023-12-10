@@ -42,6 +42,9 @@ html[data-theme="light"] {
 	--text: #{$text-dark};
 	--bg-colour: #{$bg-colour};
 	--bg-colour-darker: #{$bg-colour-darker};
+	.fa-sun-o {
+		display: none;
+	}
 }
 
 html[data-theme="dark"] {
@@ -56,6 +59,9 @@ html[data-theme="dark"] {
 	--text: #{$bg-colour};
 	--bg-colour: #{$text-light};
 	--bg-colour-darker: #{$text-dark};
+	.fa-moon-o {
+		display: none;
+	}
 }
 
 $bord-rad: 10px;
