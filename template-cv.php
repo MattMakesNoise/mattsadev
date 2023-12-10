@@ -44,14 +44,11 @@ if ( $skills->have_posts() ) :
 				<div class="summary-body">
 					<p>A keen interest in both front-end and back-end development, strong communication skills, attention to detail and a fantastic work ethic.</p>
 					<p>Having always been intrigued by web development and following a Covid related redundancy, I decided to pursue this further and enrolled on the Netmatters SCS Scheme. This helped me to build a solid foundation in the skills required for entry into the industry.</p>
+					<p>Having worked as a developer for 18 months, developing themes and plugins for WordPress I now have a solid grasp of the fundamentals, version control, writing documentation and working collaboratively.</p>
 					<p>A previous work history in a variety of different roles shows a proven ability to
 						not only motivate myself but also others to achieve high standards, additionally
 						demonstrating that I can communicate effectively with colleagues as well as
 						clients.</p>
-					<p>Add something about what I've learned by being a developer for 18 months.</p>
-					<p>Add something about what I've learned by being a developer for 18 months.</p>
-					<p>Add something about what I've learned by being a developer for 18 months.</p>
-					<p>Add something about what I've learned by being a developer for 18 months.</p>
 				</div>
 			</div>
 
