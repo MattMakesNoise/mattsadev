@@ -1,0 +1,12 @@
+@import '../../variables', '../../mixins';
+
+.content {
+	max-width: 100%;
+	//margin: 0 1rem;
+
+	.hero-container,
+	.project-wrapper,
+	.contact-container {
+		@include card;
+	}
+}
