@@ -1,47 +1,18 @@
-// Select all slides
-const slides = document.querySelectorAll(".slide");
+const buttons = document.querySelectorAll("[data-carousel-button]");
 
-// Loop through slides and set each translateX to index * 100%
-slides.forEach((slide, index) => {
-	slide.style.transform = `translateX(${index * 100}%)`;
-});
+buttons.forEach(button => {
+	button.addEventListener("click", () => {
+		console.log("clicked");
+		const offset = button.dataset.carouselButton === "next" ? 1 : -1;
+		const slides = button.closest("[data-carousel]").querySelector("[data-slides]");
 
-// select next slide button
-const nextSlide = document.querySelector(".btn-next");
+		const activeSlide = slides.querySelector("[data-active]");
+		let newIndex = [...slides.children].indexOf(activeSlide) + offset;
 
-// current slide counter
-let curSlide = 0;
-// max no of slides
-let maxSlide = slide.length - 1;
+		if (newIndex < 0) newIndex = slides.children.length -1;
+		if (newIndex >= slides.children.length) newIndex = 0;
 
-// add event listener and next slide functionality
-nextSlide.addEventListener("click", function () {
-	// Check current slide is last, if so reset
-	if (curSlide === maxSlide) {
-		curSlide = 0;
-	} else {
-		curSlide++;
-	}
-
-	slides.forEach((slide, index) => {
-		slide.style.transform = `translateX(${100 * (index - curSlide)}%)`;
-	});
-});
-
-// select prev slide button
-const prevSlide = document.querySelector(".btn-prev");
-
-// add event listener and navigation functionality
-prevSlide.addEventListener("click", function () {
-	// check if current slide is the first and reset current slide to last
-	if (curSlide === 0) {
-		curSlide = maxSlide;
-	} else {
-		curSlide--;
-	}
-
-	//   move slide by 100%
-	slides.forEach((slide, index) => {
-		slide.style.transform = `translateX(${100 * (index - curSlide)}%)`;
-	});
-});
+		slides.children[newIndex].dataset.active = true;
+		delete activeSlide.dataset.active;
+	})
+})

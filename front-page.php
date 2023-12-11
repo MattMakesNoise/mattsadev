@@ -13,32 +13,23 @@ get_header();
 	<main id="primary" class="site-main">
 		<div class="content">
 			<div class="hero-container">
-				<div class="hero">
-					<div class="hero-content">
-						<h1>Hero Title</h1>
-						<p>Hero Content</p>
+				<section aria-label="Newest Photos">
+					<div class="carousel" data-carousel>
+						<button class="carousel-button prev" data-carousel-button="prev">&#60</button>
+						<button class="carousel-button next" data-carousel-button="next">&#62</button>
+						<ul data-slides>
+							<li class="slide" data-active>
+								<img src="https://picsum.photos/seed/1702287946690/600/300" alt="">
+							</li>
+							<li class="slide">
+								<img src="https://picsum.photos/seed/1702287956193/600/300" alt="">
+							</li>
+							<li class="slide">
+								<img src="https://picsum.photos/seed/1702287957682/600/300" alt="">
+							</li>
+						</ul>
 					</div>
-					<div class="slider">
-						<div class="slide">
-							<img src="https://picsum.photos/seed/1702287946690/600/300" alt="">
-						</div>
-						<div class="slide">
-							<img src="https://picsum.photos/seed/1702287956193/600/300" alt="">
-						</div>
-						<div class="slide">
-							<img src="https://picsum.photos/seed/1702287957682/600/300" alt="">
-						</div>
-						<div class="slide">
-							<img src="https://picsum.photos/seed/1702287969920/600/300" alt="">
-						</div>
-						<div class="slide">
-							<img src="https://picsum.photos/seed/1702287975093/600/300" alt="">
-						</div>
-
-						<button class="btn btn-next"></button>
-						<button class="btn btn-prev"></button>
-					</div>
-				</div>
+				</section>
 			</div>
 			<div class="projects-container">
 				<div class="project-wrapper">
