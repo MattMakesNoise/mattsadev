@@ -39,7 +39,10 @@ function minifyCSS() {
 //Compile JS
 function javascriptFrontend() {
 	//1. Where are my FrontEnd JS files?
-	return src('./src/assets/js/custom/frontend/*.js', {sourcemaps: true})
+	return src([
+		'./src/assets/js/custom/frontend/navigation.js',
+		'./src/assets/js/custom/frontend/*.js'
+	], {sourcemaps: true})
 	//2. Make the task wait so that JS has compiled
 	.pipe(wait(100))
 	//3. Concatenate the JS files
