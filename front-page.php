@@ -37,29 +37,41 @@ get_header();
 				</section>
 			</div>
 			<div class="projects-container">
-				<div class="project-wrapper">
-					<div class="image-wrapper fade-in from-left slide-in">
-						<img src="https://picsum.photos/seed/1702227117452/300/300" alt="">
+				<div class="projects-first-pair">
+					<div class="project-wrapper fade-in from-left slide-in">
+						<div class="image-wrapper">
+							<img src="https://picsum.photos/seed/1702227117452/300/300" alt="">
+						</div>
+						<div class="project-title">Project 1</div>
+						<div class="project-blurb">I'm a great project</div>
+						<button class="read-more">More</button>
 					</div>
-					<div class="project-title">Project 1</div>
+					<div class="project-wrapper fade-in from-right slide-in">
+						<div class="image-wrapper">
+							<img src="https://picsum.photos/seed/1702227195824/300/300" alt="">
+						</div>
+						<div class="project-title">Project 2</div>
+						<div class="project-blurb">I'm a great project</div>
+						<button class="read-more">More</button>
+					</div>
 				</div>
-				<div class="project-wrapper">
-					<div class="image-wrapper fade-in from-right slide-in">
-						<img src="https://picsum.photos/seed/1702227195824/300/300" alt="">
+				<div class="projects-second-pair">
+					<div class="project-wrapper fade-in from-left slide-in">
+						<div class="image-wrapper">
+							<img src="https://picsum.photos/seed/1702227214671/300/300" alt="">
+						</div>
+						<div class="project-title">Project 3</div>
+						<div class="project-blurb">I'm a great project</div>
+						<button class="read-more">More</button>
 					</div>
-					<div class="project-title">Project 2</div>
-				</div>
-				<div class="project-wrapper">
-					<div class="image-wrapper fade-in from-left slide-in">
-						<img src="https://picsum.photos/seed/1702227214671/300/300" alt="">
+					<div class="project-wrapper fade-in from-right slide-in">
+						<div class="image-wrapper">
+							<img src="https://picsum.photos/seed/1702227225965/300/300" alt="">
+						</div>
+						<div class="project-title">Project 4</div>
+						<div class="project-blurb">I'm a great project</div>
+						<button class="read-more">More</button>
 					</div>
-					<div class="project-title">Project 3</div>
-				</div>
-				<div class="project-wrapper">
-					<div class="image-wrapper fade-in from-right slide-in">
-						<img src="https://picsum.photos/seed/1702227225965/300/300" alt="">
-					</div>
-					<div class="project-title">Project 4</div>
 				</div>
 			</div>
 			<div class="contact-container">

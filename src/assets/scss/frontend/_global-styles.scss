@@ -75,6 +75,31 @@ p {
 	margin-bottom: .5rem;
 }
 
+button {
+	display: inline-block;
+	background-color: var(--primary);
+	color: var(--bg-colour);
+	padding: .75rem 1.5rem;
+	border: 2px solid var(--primary);
+	border-radius: $bord-rad;
+	box-shadow: $shadow;
+	font-weight: 600;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+	cursor: pointer;
+	transition: all .15s ease-in-out;
+
+	&:hover {
+		background-color: var(--bg-colour);
+		color: var(--text);
+	}
+
+	&:active {
+		transform: scale(0.99);
+	}
+}
+
 .fade-in {
 	opacity: 0;
 	transition: opacity 750ms ease-in;
