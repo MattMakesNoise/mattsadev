@@ -157,4 +157,19 @@
 			}
 		}
 	}
+
+	.contact-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		@include lg {
+			align-items: flex-start;
+		}
+
+		.contact-form-wrapper {
+			margin-top: 1rem;
+		}
+	}
 }
+

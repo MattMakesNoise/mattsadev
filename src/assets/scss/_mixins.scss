@@ -43,7 +43,6 @@
 	margin-bottom: 2rem;
 	padding: 2rem;
 	border: 1px solid var(--bg-colour);
-	//border: 1px solid red;
 	border-radius: $bord-rad;
 	box-shadow: $shadow;
 }
@@ -53,7 +52,7 @@
 	display: inline-block;
 	background-color: $colour;
 	color: var(--bg-colour);
-	padding: 1rem 2rem;
+	padding: .75rem 1.5rem;
 	border: 1px solid $colour;
 	border-radius: $bord-rad;
 	box-shadow: $shadow;
@@ -66,7 +65,7 @@
 
 	&:hover {
 		background-color: var(--bg-colour);
-		color: $colour;
+		color: var(--text);
 	}
 
 	&:active {
@@ -98,4 +97,8 @@
 	&:hover {
 		color: var(--text);
 	}
+}
+
+@mixin font {
+	font-family: 'Roboto', sans-serif;
 }

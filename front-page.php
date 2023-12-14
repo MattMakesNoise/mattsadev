@@ -75,12 +75,41 @@ get_header();
 				</div>
 			</div>
 			<div class="contact-container">
-				<div class="contact-title">Get in touch!</div>
-				<?php
-					echo do_shortcode(
-						'[contact-form-7 id="62a785a" title="Contact form 1"]'
-					);
-				?>
+				<h2 class="contact-title">Get in touch!</h2>
+				<div class="contact-form-wrapper">
+					<form action="">
+
+						<div class="first-last-wrapper">
+							<div class="first-name-wrapper">
+								<label for="fname">First Name</label>
+								<input type="text" id="fname" name="fname">
+							</div>
+							<div class="second-name-wrapper">
+								<label for="sname">Second Name</label>
+								<input type="text" id="sname" name="sname">
+							</div>
+						</div>
+						<div class="email-subject-wrapper">
+							<div class="email-wrapper">
+								<label for="email">Email</label>
+								<input type="email" id="email" name="email">
+							</div>
+							<div class="subject-wrapper">
+								<label for="subject">Subject</label>
+								<input type="text" id="subject" name="subject">
+							</div>
+						</div>
+						<div class="message-wrapper">
+							<div class="message-wrapper">
+								<label for="message">Message</label>
+								<textarea name="message" id="message" cols="30" rows="10"></textarea>
+							</div>
+						</div>
+						<div class="submit-wrapper">
+							<input type="submit" value="Submit">
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 
