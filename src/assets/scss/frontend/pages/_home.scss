@@ -73,5 +73,30 @@
 				right: 1rem;
 			}
 		}
+
+		.carousel-dots {
+			margin-bottom: 24px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 3;
+			position: absolute;
+			top: 95%;
+			left: 50%;
+
+			.carousel-dot {
+				width: 8px;
+				height: 8px;
+				cursor: pointer;
+				border-radius: 8px;
+				background-color: #afafaf;
+				margin: 0 4px;
+				transition: 100ms background-color ease-in;
+
+				&:active {
+					background-color: #5f5f5f;
+				}
+			}
+		}
 	}
 }

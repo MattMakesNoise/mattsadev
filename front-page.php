@@ -18,7 +18,7 @@ get_header();
 						<button class="carousel-button prev" data-carousel-button="prev">&#60</button>
 						<button class="carousel-button next" data-carousel-button="next">&#62</button>
 						<ul data-slides>
-							<li class="slide" data-active>
+							<li class="slide" data-active="true">
 								<img src="https://picsum.photos/seed/1702287946690/600/300" alt="">
 							</li>
 							<li class="slide">
@@ -28,6 +28,11 @@ get_header();
 								<img src="https://picsum.photos/seed/1702287957682/600/300" alt="">
 							</li>
 						</ul>
+						<div class="carousel-dots">
+							<div class="carousel-dot active" data-carousel-dot="1"></div>
+							<div class="carousel-dot" data-carousel-dot="2"></div>
+							<div class="carousel-dot" data-carousel-dot="3"></div>
+						</div>
 					</div>
 				</section>
 			</div>
