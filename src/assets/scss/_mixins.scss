@@ -99,3 +99,7 @@
 		color: var(--text);
 	}
 }
+
+@mixin font {
+	font-family: 'Roboto', sans-serif;
+}

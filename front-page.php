@@ -75,16 +75,16 @@ get_header();
 				</div>
 			</div>
 			<div class="contact-container">
-				<div class="contact-title">Get in touch!</div>
-				<?php
-					echo do_shortcode(
-						'[contact-form-7 id="62a785a" title="Contact form 1"]'
-					);
-				?>
+				<h3 class="contact-title">Get in touch!</h3>
+				<div class="contact-form-wrapper">
+					<?php
+						echo do_shortcode(
+							'[contact-form-7 id="de5e44f" title="Get in touch!"]'
+						);
+					?>	
+				</div>
 			</div>
 		</div>
-
-
 	</main><!-- #main -->
 
 <?php
