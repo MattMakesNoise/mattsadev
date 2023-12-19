@@ -11,7 +11,7 @@ use Mattsadev\Inc\Template_Tags;
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="<?php post_class(); ?>">
+<article id="post-<?php the_ID(); ?>" class="hidden <?php post_class(); ?>">
 	<div class="featured-img-wrapper">
 		<?php Template_Tags::post_thumbnail(); ?>
 	</div>

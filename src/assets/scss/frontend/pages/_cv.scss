@@ -139,6 +139,22 @@ body.cv {
 				position: relative;
 				overflow: hidden;
 
+				&:nth-child(2) {
+					transition-delay: 100ms;
+				}
+	
+				&:nth-child(3) {
+					transition-delay: 200ms;
+				}
+	
+				&:nth-child(4) {
+					transition-delay: 300ms;
+				}
+				
+				&:nth-child(5) {
+					transition-delay: 400ms;
+				}
+
 				&::before {
 					content: '';
 					position: absolute;

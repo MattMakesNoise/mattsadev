@@ -193,28 +193,21 @@ button {
   button:active {
     transform: scale(0.99); }
 
-.fade-in {
+.hidden {
   opacity: 0;
-  transition: opacity 750ms ease-in; }
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s; }
 
-.fade-in.appear {
-  opacity: 1; }
+@media (prefers-reduced-motion) {
+  .hidden {
+    transition: none; } }
 
-.from-left {
-  transform: translateX(-50%); }
-
-.from-right {
-  transform: translateX(50%); }
-
-.from-left,
-.from-right {
-  transition: opacity 250ms ease-in, transform 750ms ease-in;
-  opacity: 0; }
-
-.from-left.appear,
-.from-right.appear {
+.show {
+  opacity: 1;
+  filter: blur(0);
   transform: translateX(0);
-  opacity: 1; }
+  display: block; }
 
 html[data-theme="light"] {
   --primary: #2FB279;
@@ -389,6 +382,14 @@ body.cv .content {
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
       position: relative;
       overflow: hidden; }
+      body.cv .content .skill-level-container .level:nth-child(2) {
+        transition-delay: 100ms; }
+      body.cv .content .skill-level-container .level:nth-child(3) {
+        transition-delay: 200ms; }
+      body.cv .content .skill-level-container .level:nth-child(4) {
+        transition-delay: 300ms; }
+      body.cv .content .skill-level-container .level:nth-child(5) {
+        transition-delay: 400ms; }
       body.cv .content .skill-level-container .level::before {
         content: '';
         position: absolute;
@@ -687,28 +688,37 @@ html[data-theme="dark"] {
     max-width: 100%;
     display: flex;
     flex-direction: column; }
-    @media (min-width: 992px) {
+    @media (min-width: 768px) {
       .content .projects-container {
-        flex-direction: row; }
-        .content .projects-container div:first-child {
-          margin-right: 1rem; } }
-    .content .projects-container .projects-first-pair,
-    .content .projects-container .projects-second-pair {
-      display: flex;
-      flex-direction: column; }
-      @media (min-width: 768px) {
-        .content .projects-container .projects-first-pair,
-        .content .projects-container .projects-second-pair {
-          flex-direction: row;
-          justify-content: space-between; }
-          .content .projects-container .projects-first-pair div:first-child,
-          .content .projects-container .projects-second-pair div:first-child {
-            margin-right: 1rem; } }
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between; } }
     .content .projects-container .project-wrapper {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center; }
+      @media (min-width: 768px) {
+        .content .projects-container .project-wrapper {
+          width: 48%; } }
+      @media (min-width: 1200px) {
+        .content .projects-container .project-wrapper {
+          width: 24%; } }
+      .content .projects-container .project-wrapper:nth-child(2) {
+        transition-delay: 0ms; }
+        @media (min-width: 768px) {
+          .content .projects-container .project-wrapper:nth-child(2) {
+            transition-delay: 200ms; } }
+      .content .projects-container .project-wrapper:nth-child(3) {
+        transition-delay: 0ms; }
+        @media (min-width: 768px) {
+          .content .projects-container .project-wrapper:nth-child(3) {
+            transition-delay: 400ms; } }
+      .content .projects-container .project-wrapper:nth-child(4) {
+        transition-delay: 0ms; }
+        @media (min-width: 768px) {
+          .content .projects-container .project-wrapper:nth-child(4) {
+            transition-delay: 600ms; } }
       .content .projects-container .project-wrapper .image-wrapper {
         max-width: 100%;
         border-radius: 10px; }
@@ -1064,7 +1074,8 @@ html[data-theme="dark"] {
     display: flex;
     flex-direction: row;
     margin-bottom: 2rem;
-    padding-bottom: 1rem; }
+    padding-bottom: 1rem;
+    transition-delay: 400ms; }
     .content-wrapper article:hover {
       transform: translateY(-5px); }
     .content-wrapper article .featured-img-wrapper {
