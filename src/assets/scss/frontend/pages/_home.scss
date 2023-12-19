@@ -159,15 +159,27 @@
 	}
 
 	.contact-container {
+		display: flex;
+		flex-direction: column;
+		@include lg {
+			align-items: center;
+		}
+
 		.contact-form-wrapper {
 			margin-top: 2rem;
-
+			width: 100%;
+			@include md {
+				width: 80%;
+			}
+			@include lg {
+				width: 50%;
+			}
 			form {
 				input[name="your-name"],
 				input[name="your-email"],
 				input[name="your-subject"],
 				textarea[name="your-message"] {
-					width: 60%;
+					width: 100%;
 					@include font;
 					margin-top: .5rem;
 					padding: .5rem;

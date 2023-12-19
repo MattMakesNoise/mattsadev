@@ -75,7 +75,9 @@ get_header();
 				</div>
 			</div>
 			<div class="contact-container">
-				<h3 class="contact-title">Get in touch!</h3>
+				<div class="contact-title">
+					<h3 class="contact-title">Get in touch!</h3>
+				</div>
 				<div class="contact-form-wrapper">
 					<?php
 						echo do_shortcode(
