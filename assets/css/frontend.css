@@ -731,8 +731,102 @@ html[data-theme="dark"] {
     @media (min-width: 992px) {
       .content .contact-container {
         align-items: flex-start; } }
-    .content .contact-container .contact-form-wrapper {
+    .content .contact-container .contact-blurb {
       margin-top: 1rem; }
+    .content .contact-container .contact-form-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem; }
+      .content .contact-container .contact-form-wrapper #contact-form {
+        width: 800px; }
+        .content .contact-container .contact-form-wrapper #contact-form .form-control {
+          display: flex;
+          flex-direction: column;
+          position: relative;
+          margin-bottom: .5rem; }
+          .content .contact-container .contact-form-wrapper #contact-form .form-control small,
+          .content .contact-container .contact-form-wrapper #contact-form .form-control i {
+            display: none; }
+          .content .contact-container .contact-form-wrapper #contact-form .form-control .success input,
+          .content .contact-container .contact-form-wrapper #contact-form .form-control .success textarea {
+            border-color: green; }
+          .content .contact-container .contact-form-wrapper #contact-form .form-control .success i.fa-check-circle {
+            color: white;
+            display: block; }
+          .content .contact-container .contact-form-wrapper #contact-form .form-control .error input,
+          .content .contact-container .contact-form-wrapper #contact-form .form-control .error textarea {
+            border-color: red; }
+          .content .contact-container .contact-form-wrapper #contact-form .form-control .error i.fa-exclamation-circle {
+            color: white;
+            display: block; }
+        .content .contact-container .contact-form-wrapper #contact-form .first-last-wrapper,
+        .content .contact-container .contact-form-wrapper #contact-form .email-subject-wrapper {
+          display: flex;
+          flex-direction: column; }
+          @media (min-width: 992px) {
+            .content .contact-container .contact-form-wrapper #contact-form .first-last-wrapper,
+            .content .contact-container .contact-form-wrapper #contact-form .email-subject-wrapper {
+              flex-direction: row;
+              justify-content: space-between; } }
+        .content .contact-container .contact-form-wrapper #contact-form .first-name-wrapper,
+        .content .contact-container .contact-form-wrapper #contact-form .second-name-wrapper,
+        .content .contact-container .contact-form-wrapper #contact-form .email-wrapper,
+        .content .contact-container .contact-form-wrapper #contact-form .subject-wrapper,
+        .content .contact-container .contact-form-wrapper #contact-form .message-wrapper {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 1rem; }
+          .content .contact-container .contact-form-wrapper #contact-form .first-name-wrapper label,
+          .content .contact-container .contact-form-wrapper #contact-form .second-name-wrapper label,
+          .content .contact-container .contact-form-wrapper #contact-form .email-wrapper label,
+          .content .contact-container .contact-form-wrapper #contact-form .subject-wrapper label,
+          .content .contact-container .contact-form-wrapper #contact-form .message-wrapper label {
+            margin-bottom: .5rem; }
+          .content .contact-container .contact-form-wrapper #contact-form .first-name-wrapper input,
+          .content .contact-container .contact-form-wrapper #contact-form .first-name-wrapper textarea,
+          .content .contact-container .contact-form-wrapper #contact-form .second-name-wrapper input,
+          .content .contact-container .contact-form-wrapper #contact-form .second-name-wrapper textarea,
+          .content .contact-container .contact-form-wrapper #contact-form .email-wrapper input,
+          .content .contact-container .contact-form-wrapper #contact-form .email-wrapper textarea,
+          .content .contact-container .contact-form-wrapper #contact-form .subject-wrapper input,
+          .content .contact-container .contact-form-wrapper #contact-form .subject-wrapper textarea,
+          .content .contact-container .contact-form-wrapper #contact-form .message-wrapper input,
+          .content .contact-container .contact-form-wrapper #contact-form .message-wrapper textarea {
+            width: 100%;
+            padding: .5rem;
+            border: 1px solid var(--primary);
+            border-radius: 10px; }
+          @media (min-width: 992px) {
+            .content .contact-container .contact-form-wrapper #contact-form .first-name-wrapper input,
+            .content .contact-container .contact-form-wrapper #contact-form .second-name-wrapper input,
+            .content .contact-container .contact-form-wrapper #contact-form .email-wrapper input,
+            .content .contact-container .contact-form-wrapper #contact-form .subject-wrapper input,
+            .content .contact-container .contact-form-wrapper #contact-form .message-wrapper input {
+              width: 392px; } }
+        @media (min-width: 992px) {
+          .content .contact-container .contact-form-wrapper #contact-form .first-name-wrapper,
+          .content .contact-container .contact-form-wrapper #contact-form .email-wrapper {
+            margin-right: 1rem; } }
+        .content .contact-container .contact-form-wrapper #contact-form .submit-wrapper input {
+          display: inline-block;
+          background-color: var(--primary);
+          color: var(--bg-colour);
+          padding: .75rem 1.5rem;
+          border: 1px solid var(--primary);
+          border-radius: 10px;
+          box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+          font-weight: 600;
+          text-align: center;
+          text-decoration: none;
+          text-transform: uppercase;
+          cursor: pointer;
+          transition: all .1s ease-in-out; }
+          .content .contact-container .contact-form-wrapper #contact-form .submit-wrapper input:hover {
+            background-color: var(--bg-colour);
+            color: var(--text); }
+          .content .contact-container .contact-form-wrapper #contact-form .submit-wrapper input:active {
+            transform: scale(0.99); }
 
 html[data-theme="light"] {
   --primary: #2FB279;

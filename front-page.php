@@ -76,33 +76,50 @@ get_header();
 			</div>
 			<div class="contact-container">
 				<h2 class="contact-title">Get in touch!</h2>
+				<p class="contact-blurb">Got a question or want to work together?</p>
 				<div class="contact-form-wrapper">
-					<form action="">
-
+					<form action="" id="contact-form">
 						<div class="first-last-wrapper">
-							<div class="first-name-wrapper">
+							<div class="first-name-wrapper form-control">
 								<label for="fname">First Name</label>
 								<input type="text" id="fname" name="fname">
+								<div class="error-wrapper">
+									<i class="fas fa-check-circle"></i>
+									<i class="fas fa-exclamation-circle"></i>
+									<small class="error-message">Error</small>
+								</div>
 							</div>
-							<div class="second-name-wrapper">
+							<div class="second-name-wrapper form-control">
 								<label for="sname">Second Name</label>
 								<input type="text" id="sname" name="sname">
+								<i class="fas fa-check-circle"></i>
+								<i class="fas fa-exclamation-circle"></i>
+								<small class="error-message">Error</small>
 							</div>
 						</div>
 						<div class="email-subject-wrapper">
-							<div class="email-wrapper">
+							<div class="email-wrapper form-control">
 								<label for="email">Email</label>
 								<input type="email" id="email" name="email">
+								<i class="fas fa-check-circle"></i>
+								<i class="fas fa-exclamation-circle"></i>
+								<small class="error-message">Error</small>
 							</div>
-							<div class="subject-wrapper">
+							<div class="subject-wrapper form-control">
 								<label for="subject">Subject</label>
 								<input type="text" id="subject" name="subject">
+								<i class="fas fa-check-circle"></i>
+								<i class="fas fa-exclamation-circle"></i>
+								<small class="error-message">Error</small>
 							</div>
 						</div>
 						<div class="message-wrapper">
-							<div class="message-wrapper">
+							<div class="message-wrapper form-control">
 								<label for="message">Message</label>
 								<textarea name="message" id="message" cols="30" rows="10"></textarea>
+								<i class="fas fa-check-circle"></i>
+								<i class="fas fa-exclamation-circle"></i>
+								<small class="error-message">Error</small>
 							</div>
 						</div>
 						<div class="submit-wrapper">
