@@ -733,6 +733,10 @@ html[data-theme="dark"] {
       .content .projects-container .project-wrapper .project-blurb,
       .content .projects-container .project-wrapper .read-more {
         margin-top: 1rem; }
+      .content .projects-container .project-wrapper .read-more a {
+        color: var(--bg-colour); }
+        .content .projects-container .project-wrapper .read-more a:hover {
+          color: var(--text); }
   .content .contact-container {
     display: flex;
     flex-direction: column; }
