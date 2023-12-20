@@ -8,6 +8,20 @@
  */
 
 get_header();
+
+$projects = new WP_Query(
+	array(
+		'post_type'      => 'projects',
+		'posts_per_page' => -1,
+		'order'          => 'DESC',
+		// 'meta_key'       => 'project_level',
+		// 'orderby'        => 'meta_value_num',
+	)
+);
+
+$base_url = \Mattsadev\Main::instance()->stylesheet_uri . 'src/assets/images/projects/';
+
+if ( $projects->have_posts() ) :
 ?>
 
 	<main id="primary" class="site-main">
@@ -37,42 +51,21 @@ get_header();
 				</section>
 			</div>
 			<div class="projects-container">
-				<!-- <div class="projects-first-pair"> -->
-					<div class="project-wrapper hidden">
-						<div class="image-wrapper">
-							<img src="https://picsum.photos/seed/1702227117452/300/300" alt="">
-						</div>
-						<div class="project-title">Project 1</div>
-						<div class="project-blurb">I'm a great project</div>
-						<button class="read-more">More</button>
+				<?php
+					while ( $projects->have_posts() ) :
+						$projects->the_post();
+				?>
+				<div class="project-wrapper hidden">
+					<div class="image-wrapper">
+						<img src="<?php echo $base_url . get_post_meta( get_the_ID(), 'project_image', true ) . '.png' ?>" alt="">
 					</div>
-					<div class="project-wrapper hidden">
-						<div class="image-wrapper">
-							<img src="https://picsum.photos/seed/1702227195824/300/300" alt="">
-						</div>
-						<div class="project-title">Project 2</div>
-						<div class="project-blurb">I'm a great project</div>
-						<button class="read-more">More</button>
-					</div>
-				<!-- </div> -->
-				<!-- <div class="projects-second-pair"> -->
-					<div class="project-wrapper hidden">
-						<div class="image-wrapper">
-							<img src="https://picsum.photos/seed/1702227214671/300/300" alt="">
-						</div>
-						<div class="project-title">Project 3</div>
-						<div class="project-blurb">I'm a great project</div>
-						<button class="read-more">More</button>
-					</div>
-					<div class="project-wrapper hidden">
-						<div class="image-wrapper">
-							<img src="https://picsum.photos/seed/1702227225965/300/300" alt="">
-						</div>
-						<div class="project-title">Project 4</div>
-						<div class="project-blurb">I'm a great project</div>
-						<button class="read-more">More</button>
-					</div>
-				<!-- </div> -->
+					<h4 class="project-title"><?php echo the_title() ?></h4>
+					<div class="project-blurb"><?php echo the_content() ?></div>
+					<button class="read-more"><a href="<?php echo get_post_meta( get_the_ID(), 'project_url', true ) ?>" target="_blank">View Site</a></button>
+				</div>
+				<?php
+					endwhile;
+				?>
 			</div>
 			<div class="contact-container">
 				<div class="contact-title">
@@ -83,11 +76,13 @@ get_header();
 						echo do_shortcode(
 							'[contact-form-7 id="de5e44f" title="Get in touch!"]'
 						);
-					?>	
+					?>
 				</div>
 			</div>
 		</div>
 	</main><!-- #main -->
 
-<?php
+<?php endif;
+
+wp_reset_postdata();
 get_footer();

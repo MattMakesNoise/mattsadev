@@ -9,6 +9,7 @@ namespace Mattsadev;
 use Mattsadev\Inc\Search;
 use Mattsadev\Inc\Template_Tags;
 use Mattsadev\Inc\Skills;
+use Mattsadev\Inc\Projects;
 
 /**
  * @since 0.1.0
@@ -117,6 +118,9 @@ final class Main {
 
 		// Skills custom post type and fields
 		Skills::init();
+
+		// Projects custom post type and fields
+		Projects::init();
 	}
 
 	/**
