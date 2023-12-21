@@ -630,6 +630,7 @@ html[data-theme="dark"] {
       list-style: none; }
     .content .carousel .slide {
       position: absolute;
+      text-align: center;
       inset: 0;
       opacity: 0;
       transition: 200ms opacity ease-in-out;
@@ -640,6 +641,27 @@ html[data-theme="dark"] {
         height: 100%;
         object-fit: cover;
         object-position: center; }
+      .content .carousel .slide .hero-text-wrapper {
+        position: absolute;
+        z-index: 5;
+        background-color: var(--bg-colour);
+        padding: 2rem 4rem;
+        border: 1px solid var(--bg-colour);
+        border-radius: 10px; }
+        .content .carousel .slide .hero-text-wrapper p {
+          margin: 2rem 0; }
+    .content .carousel .slide-one .hero-text-wrapper {
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%); }
+    .content .carousel .slide-two .hero-text-wrapper {
+      top: 50%;
+      right: 50%;
+      transform: translate(50%, -50%); }
+    .content .carousel .slide-three .hero-text-wrapper {
+      top: 75%;
+      right: 50%;
+      transform: translate(50%, -50%); }
     .content .carousel .slide[data-active] {
       opacity: 1;
       z-index: 1;
@@ -673,7 +695,8 @@ html[data-theme="dark"] {
       z-index: 3;
       position: absolute;
       top: 95%;
-      left: 50%; }
+      left: 50%;
+      transform: translateX(-50%); }
       .content .carousel .carousel-dots .carousel-dot {
         width: 8px;
         height: 8px;

@@ -1,6 +1,25 @@
 const buttons = document.querySelectorAll("[data-carousel-button]");
 const dots = document.querySelectorAll("[data-carousel-dot]");
 const slides = document.querySelector("[data-slides]");
+let currentIndex = 0;
+
+function changeSlide() {
+	const activeSlide = slides.querySelector("[data-active]");
+	delete activeSlide.dataset.active;
+
+	if (currentIndex >= slides.children.length) currentIndex = 0;
+
+	slides.children[currentIndex].dataset.active = true;
+
+	dots.forEach((dot, index) => {
+		dot.classList.toggle("active", index === currentIndex);
+	});
+
+	currentIndex++;
+}
+
+setInterval(changeSlide, 4000);
+
 
 buttons.forEach(button => {
 	button.addEventListener("click", (e) => {

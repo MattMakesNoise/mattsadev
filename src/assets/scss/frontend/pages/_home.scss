@@ -26,6 +26,7 @@
 
 		.slide {
 			position: absolute;
+			text-align: center;
 			inset: 0;
 			opacity: 0;
 			transition: 200ms opacity ease-in-out;
@@ -37,6 +38,43 @@
 				height: 100%;
 				object-fit: cover;
 				object-position: center;
+			}
+
+			.hero-text-wrapper {
+				position: absolute;
+				z-index: 5;
+				background-color: var(--bg-colour);
+				padding: 2rem 4rem;
+				border: 1px solid var(--bg-colour);
+				border-radius: $bord-rad;
+
+				p {
+					margin: 2rem 0;
+				}
+			}
+		}
+
+		.slide-one {
+			.hero-text-wrapper {
+				top: 50%;
+				right: 50%;
+				transform: translate(50%, -50%);
+			}
+		}
+
+		.slide-two {
+			.hero-text-wrapper {
+				top: 50%;
+				right: 50%;
+				transform: translate(50%, -50%);
+			}
+		}
+
+		.slide-three {
+			.hero-text-wrapper {
+				top: 75%;
+				right: 50%;
+				transform: translate(50%, -50%);
 			}
 		}
 
@@ -87,6 +125,7 @@
 			position: absolute;
 			top: 95%;
 			left: 50%;
+			transform: translateX(-50%);
 
 			.carousel-dot {
 				width: 8px;

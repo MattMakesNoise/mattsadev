@@ -20,6 +20,7 @@ $projects = new WP_Query(
 );
 
 $base_url = \Mattsadev\Main::instance()->stylesheet_uri . 'src/assets/images/projects/';
+$base_url_carousel = \Mattsadev\Main::instance()->stylesheet_uri . 'src/assets/images/carousel/';
 
 if ( $projects->have_posts() ) :
 ?>
@@ -32,14 +33,29 @@ if ( $projects->have_posts() ) :
 						<button class="carousel-button prev" data-carousel-button="prev">&#60</button>
 						<button class="carousel-button next" data-carousel-button="next">&#62</button>
 						<ul data-slides>
-							<li class="slide" data-active="true">
-								<img src="https://picsum.photos/seed/1702287946690/600/300" alt="">
+							<li class="slide slide-one" data-active="true">
+								<img src="<?php echo $base_url_carousel . 'dev1.jpg'?>" alt="">
+								<div class="hero-text-wrapper">
+									<h2>Hi! I'm Matt</h2>
+									<p>A front-end developer based in Norwich, UK.</p>
+									<button>Click me!</button>
+								</div>
 							</li>
-							<li class="slide">
-								<img src="https://picsum.photos/seed/1702287956193/600/300" alt="">
+							<li class="slide slide-two">
+								<img src="<?php echo $base_url_carousel . 'dev2.jpg'?>" alt="">
+								<div class="hero-text-wrapper">
+									<h2>Hi! I'm Matt</h2>
+									<p>Also building themes and plugins using WordPress</p>
+									<button>Click me!</button>
+								</div>
 							</li>
-							<li class="slide">
-								<img src="https://picsum.photos/seed/1702287957682/600/300" alt="">
+							<li class="slide slide-three">
+								<img src="<?php echo $base_url_carousel . 'sound_eng.jpg'?>" alt="">
+								<div class="hero-text-wrapper">
+									<h2>Hi! I'm Matt</h2>
+									<p>I used to tour the world as a sound engineer and occasionally dip my toes back into the world of noise!</p>
+									<button>Click me!</button>
+								</div>
 							</li>
 						</ul>
 						<div class="carousel-dots">
