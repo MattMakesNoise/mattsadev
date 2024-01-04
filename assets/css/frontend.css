@@ -932,6 +932,10 @@ html[data-theme="dark"] {
         color: var(--primary);
         text-decoration: none;
         text-transform: uppercase; }
+      #site-header .header-wrapper .site-branding img {
+        width: 100%;
+        height: auto;
+        max-width: 300px; }
     #site-header .header-wrapper .main-navigation {
       display: none;
       width: 50%; }

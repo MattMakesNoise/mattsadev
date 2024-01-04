@@ -6,6 +6,7 @@
  */
 namespace Mattsadev;
 
+use Mattsadev\Inc\Logo_Switch;
 use Mattsadev\Inc\Search;
 use Mattsadev\Inc\Template_Tags;
 use Mattsadev\Inc\Skills;
@@ -121,6 +122,9 @@ final class Main {
 
 		// Projects custom post type and fields
 		Projects::init();
+
+		// Logo Switch AJAX
+		Logo_Switch::init();
 	}
 
 	/**
