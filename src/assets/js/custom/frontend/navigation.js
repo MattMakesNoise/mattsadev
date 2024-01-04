@@ -1,4 +1,5 @@
-( function($) {
+// ( function($) {
+jQuery(document).ready(function ($) {
 	const slideOut = $('#slideout');
 	const pageWrapper = $('#page-wrapper');
 	const overlay = $('#overlay');
@@ -8,6 +9,28 @@
 	const colourSwitcher = $('input[name=theme_switch]');
 	const colourSwitcherToggle = $('.colour-switch');
 	const logoDiv = $('.site-branding a img');
+	let data;
+
+	// Change logo with theme
+	$.ajax({
+		type: 'POST',
+		url: ajax_object.ajax_url,
+		data: {
+			action: 'update_logo'
+		},
+		success: function (response) {
+			if (response) {
+				data = JSON.parse(response);
+
+				// Update logo based on theme
+				if (root.attr("data-theme") === "dark") {
+					logoDiv.attr("src", data.dark_logo_url);
+				} else {
+					logoDiv.attr("src", data.light_logo_url);
+				}
+			}
+		}
+	});
 
 	/**
 	 * Adds theme colour switch functionality.
@@ -24,29 +47,12 @@
 	colourSwitcher.on("change", function () {
 		root.attr("data-theme", this.checked ? "dark" : "light");
 
-		// Change logo with theme
-		$.ajax({
-			type: 'POST',
-			url: ajax_object.ajax_url,
-			data: {
-				action: 'update_logo'
-			},
-			success: function (response) {
-				try {
-					const data = JSON.parse(response);
-					if (data.dark_logo_url) {
-
-					}
-					if (root.attr("data-theme") === "dark") {
-						logoDiv.attr("src", data.dark_logo_url);
-					} else {
-						logoDiv.attr("src", data.light_logo_url);
-					}
-				} catch (error) {
-					console.error("Error parsing JSON response: ", error);
-				}
-			}
-		})
+		// Update logo based on theme
+		if (root.attr("data-theme") === "dark") {
+			logoDiv.attr("src", data.dark_logo_url);
+		} else {
+			logoDiv.attr("src", data.light_logo_url);
+		}
 	});
 
 	if(!colourSwitcherToggle.data('click-bound')) {
@@ -79,4 +85,5 @@
 		pageWrapper.css('left', '0').css('opacity', '1');
 		overlay.css('display', 'none');
 	});
-}(jQuery) );
+// }(jQuery) );
+});
