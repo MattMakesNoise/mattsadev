@@ -51,7 +51,7 @@
 
 			<div class="site-branding">
 				<a href="<?php echo home_url() ?>">
-					<img src="<?php echo get_stylesheet_directory_uri() . '/src/assets/images/site_logo/matt-jones-writes-code-logo-light-mode.png' ?>"  alt="site-logo"/>
+					<img src="<?php echo get_stylesheet_directory_uri() . '/assets/images/site_logo/matt-jones-writes-code-logo-light-mode.webp' ?>"  alt="site-logo"/>
 				</a>
 			</div><!-- .site-branding -->
 

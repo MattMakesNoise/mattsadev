@@ -19,8 +19,8 @@ $projects = new WP_Query(
 	)
 );
 
-$base_url = \Mattsadev\Main::instance()->stylesheet_uri . 'src/assets/images/projects/';
-$base_url_carousel = \Mattsadev\Main::instance()->stylesheet_uri . 'src/assets/images/carousel/';
+$base_url = \Mattsadev\Main::instance()->stylesheet_uri . 'assets/images/projects/';
+$base_url_carousel = \Mattsadev\Main::instance()->stylesheet_uri . 'assets/images/carousel/';
 
 if ( $projects->have_posts() ) :
 ?>
@@ -34,7 +34,7 @@ if ( $projects->have_posts() ) :
 						<button class="carousel-button next" data-carousel-button="next">&#62</button>
 						<ul data-slides>
 							<li class="slide slide-one" data-active="true">
-								<img src="<?php echo $base_url_carousel . 'dev1.jpg'?>" alt="">
+								<img src="<?php echo $base_url_carousel . 'dev1.webp'?>" alt="">
 								<div class="hero-text-wrapper">
 									<h2>Hi! I'm Matt</h2>
 									<p>A front-end developer based in Norwich, UK.</p>
@@ -42,7 +42,7 @@ if ( $projects->have_posts() ) :
 								</div>
 							</li>
 							<li class="slide slide-two">
-								<img src="<?php echo $base_url_carousel . 'dev2.jpg'?>" alt="">
+								<img src="<?php echo $base_url_carousel . 'dev2.webp'?>" alt="">
 								<div class="hero-text-wrapper">
 									<h2>Hi! I'm Matt</h2>
 									<p>Also building themes and plugins using WordPress</p>
@@ -50,7 +50,7 @@ if ( $projects->have_posts() ) :
 								</div>
 							</li>
 							<li class="slide slide-three">
-								<img src="<?php echo $base_url_carousel . 'sound_eng.jpg'?>" alt="">
+								<img src="<?php echo $base_url_carousel . 'sound_eng.webp'?>" alt="">
 								<div class="hero-text-wrapper">
 									<h2>Hi! I'm Matt</h2>
 									<p>I used to tour the world as a sound engineer and occasionally dip my toes back into the world of noise!</p>
@@ -73,7 +73,7 @@ if ( $projects->have_posts() ) :
 				?>
 				<div class="project-wrapper hidden">
 					<div class="image-wrapper">
-						<img src="<?php echo $base_url . get_post_meta( get_the_ID(), 'project_image', true ) . '.png' ?>" alt="">
+						<img src="<?php echo $base_url . get_post_meta( get_the_ID(), 'project_image', true ) . '.webp' ?>" alt="">
 					</div>
 					<h4 class="project-title"><?php echo the_title() ?></h4>
 					<div class="project-blurb"><?php echo the_content() ?></div>

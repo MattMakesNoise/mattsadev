@@ -26,8 +26,8 @@ class Logo_Switch {
 	 * @return void
 	 */
 	#[NoReturn] public static function update_logo() {
-		$light_logo_path = Main::instance()->stylesheet_uri . '/src/assets/images/site_logo/matt-jones-writes-code-logo-light-mode.png';
-		$dark_logo_path = Main::instance()->stylesheet_uri . '/src/assets/images/site_logo/matt-jones-writes-code-logo-dark-mode.png';
+		$light_logo_path = Main::instance()->stylesheet_uri . '/assets/images/site_logo/matt-jones-writes-code-logo-light-mode.webp';
+		$dark_logo_path = Main::instance()->stylesheet_uri . '/assets/images/site_logo/matt-jones-writes-code-logo-dark-mode.webp';
 
 		echo json_encode(
 			array(

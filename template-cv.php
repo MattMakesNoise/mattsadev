@@ -181,7 +181,7 @@ if ( $skills->have_posts() ) :
 					<div class="skill-card">
 						<div class="skill-card-logo-wrapper">
 							<div class="skill-card-logo">
-								<img src="<?php echo get_template_directory_uri() . '/src/assets/images/logos/' . get_post_meta( get_the_ID(), 'skill_logo', true ) . '.png' ?>" alt="">
+								<img src="<?php echo get_template_directory_uri() . '/assets/images/logos/' . get_post_meta( get_the_ID(), 'skill_logo', true ) . '.webp' ?>" alt="">
 							</div>
 						</div>
 						<div class="skill-level-container">

@@ -17,6 +17,7 @@ const path              = require('path');
 const packageJson       = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'package.json')));
 const { name, version } = packageJson;
 const { exec }          = require('child_process');
+const webp              = require('gulp-webp');
 
 // Compile Sass
 function styles() {
@@ -31,7 +32,7 @@ function styles() {
 //Minify CSS to a dist folder
 function minifyCSS() {
     //1. Where is my CSS file?
-    return src('./src/assets/scss/**/*.css')
+    return src('./assets/css/*.css')
         //2. Make the task wait so that Sass has compiled and outputted.
         .pipe(wait(100))
         //3. Pass that file through CSS Uglifier.
@@ -82,6 +83,12 @@ function javascriptAdmin() {
 	.pipe(dest('./assets/js/admin', { sourcemaps: '.' }));
 }
 
+function imagesToWebp() {
+    return src('src/assets/images/**/*.{png,jpg,jpeg,tiff}')
+        .pipe(webp())
+        .pipe(dest('assets/images'));
+}
+
 //Browser-sync Tasks
 function browserSyncServe(cb) {
     browserSync.init({
@@ -107,6 +114,7 @@ exports.default = series(
     minifyCSS,
     javascriptFrontend,
 	javascriptAdmin,
+	imagesToWebp,
     browserSyncServe,
     watchTask
 );
