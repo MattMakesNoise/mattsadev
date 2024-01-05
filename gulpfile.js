@@ -8,7 +8,10 @@ const rename      = require('gulp-rename');
 const wait        = require('gulp-wait');
 const uglifyCSS   = require('gulp-uglifycss');
 const uglifyJS    = require('gulp-uglify');
-const concat = require('gulp-concat');
+const concat      = require('gulp-concat');
+const clean       = require('gulp-clean');
+const filter      = require('gulp-filter');
+const zip         = require('gulp-zip');
 
 // Compile Sass
 function styles() {
@@ -103,3 +106,50 @@ exports.default = series(
     watchTask
 );
 
+// Define the list of files to include in the distribution package
+const distFiles = [
+    '**',
+    '!node_modules/**',
+    '!package.json',
+    '!package-lock.json',
+    '!gulpfile.js',
+	'!vendor/**',
+	'!composer.json',
+	'!composer.lock',
+    '!src/assets/scss/**',
+	'!src/assets/js/**',
+	'!src/assets/css/**',
+	'!babel.config.js',
+	'!editorconfig',
+	'!phpcs.xml.dist',
+	'!editorconfig',
+	'!eslintignore',
+	'!eslintrc',
+	'!eslintrc.js',
+	'!gitignore',
+	'!stylelintrc.json',
+    '!**/*.map'
+];
+
+// Define the destination folder for the distribution package
+const distDestination = 'dist';
+
+// Create a distribution package
+function buildRelease() {
+    // Filter out the files to include in the distribution package
+    const f = filter(distFiles);
+
+    return src('**')
+        .pipe(f) // Exclude the unnecessary files
+		.pipe(zip('release.zip')) // Zip the files
+        .pipe(dest(distDestination)); // Output the necessary files to the dist folder
+}
+
+// Clean the distribution folder
+function cleanDist() {
+    return src(distDestination, {read: false, allowEmpty: true})
+        .pipe(clean());
+}
+
+// Export the tasks
+exports.buildRelease = series(cleanDist, buildRelease);
