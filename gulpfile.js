@@ -2,16 +2,20 @@
 /* USING GULP V 4.0.2 & GULP-CLI V 2.3.0
 /* -------------------------------------------------------------------------- */
 const {src, dest, watch, series, task} = require('gulp');
-const sass        = require('gulp-sass');
-const browserSync = require('browser-sync').create();
-const rename      = require('gulp-rename');
-const wait        = require('gulp-wait');
-const uglifyCSS   = require('gulp-uglifycss');
-const uglifyJS    = require('gulp-uglify');
-const concat      = require('gulp-concat');
-const clean       = require('gulp-clean');
-const filter      = require('gulp-filter');
-const zip         = require('gulp-zip');
+const sass              = require('gulp-sass');
+const browserSync       = require('browser-sync').create();
+const rename            = require('gulp-rename');
+const wait              = require('gulp-wait');
+const uglifyCSS         = require('gulp-uglifycss');
+const uglifyJS          = require('gulp-uglify');
+const concat            = require('gulp-concat');
+const clean             = require('gulp-clean');
+const filter            = require('gulp-filter');
+const zip               = require('gulp-zip');
+const fs                = require('fs');
+const path              = require('path');
+const packageJson       = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'package.json')));
+const { name, version } = packageJson;
 
 // Compile Sass
 function styles() {
@@ -141,7 +145,7 @@ function buildRelease() {
 
     return src('**')
         .pipe(f) // Exclude the unnecessary files
-		.pipe(zip('release.zip')) // Zip the files
+		.pipe(zip(`${name}-${version}.zip`)) // Use the name and version to name the zip file
         .pipe(dest(distDestination)); // Output the necessary files to the dist folder
 }
 
