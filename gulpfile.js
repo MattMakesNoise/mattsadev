@@ -16,6 +16,7 @@ const fs                = require('fs');
 const path              = require('path');
 const packageJson       = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'package.json')));
 const { name, version } = packageJson;
+const { exec }          = require('child_process');
 
 // Compile Sass
 function styles() {
@@ -110,6 +111,14 @@ exports.default = series(
     watchTask
 );
 
+function composerDumpAutoload(cb) {
+    exec('composer dump-autoload', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
+}
+
 // Define the list of files to include in the distribution package
 const distFiles = [
     '**',
@@ -117,7 +126,6 @@ const distFiles = [
     '!package.json',
     '!package-lock.json',
     '!gulpfile.js',
-	'!vendor/**',
 	'!composer.json',
 	'!composer.lock',
     '!src/assets/scss/**',
@@ -156,4 +164,4 @@ function cleanDist() {
 }
 
 // Export the tasks
-exports.buildRelease = series(cleanDist, buildRelease);
+exports.buildRelease = series(cleanDist, composerDumpAutoload, buildRelease);
