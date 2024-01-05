@@ -108,10 +108,11 @@ final class Main {
 		add_action( 'login_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ], 999);
 		add_action( 'after_setup_theme',     [ $this, 'early_setup' ], 9 );
 		add_action( 'after_setup_theme',     [ $this, 'setup' ], 20 );
-		add_action( 'widgets_init', 		   [ $this, 'register_sidebars' ] );
+		add_action( 'widgets_init', 		 [ $this, 'register_sidebars' ] );
 		add_action( 'init',                  [ $this, 'wp_init' ] );
 		add_filter( 'body_class',            [ $this, 'add_slug_to_body_class' ], 10, 1 );
 		add_action( 'wp_footer',             [ $this, 'output_livereload_script' ] );
+		// add_filter( 'excerpt_more',          [ $this, 'custom_excerpt_more' ] );
 
 		Template_Tags::init();
 
@@ -358,4 +359,8 @@ final class Main {
 	public function hide_admin_bar() {
 		show_admin_bar( false );
 	}
+
+	// public function custom_excerpt_more( $more ) {
+	// 	return ' <a class="read-more" href="'. get_permalink( get_the_ID() ) . '">Read More</a>';
+	// }
 }
