@@ -37,34 +37,32 @@ use Mattsadev\Inc\Template_Tags;
 			<?php endif; ?>
 		</header><!-- .entry-header -->
 
-		<div class="entry-content">
-			<?php
-			the_excerpt(
-				sprintf(
-					wp_kses(
-						/* translators: %s: Name of current post. Only visible to screen readers */
-						__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'mattsadev' ),
-						array(
-							'span' => array(
-								'class' => array(),
+		<a class="read-more" href="<?php echo get_permalink( get_the_ID() ) ?>">
+			<div class="entry-content">
+				<?php
+					the_excerpt(
+						sprintf(
+							wp_kses(
+								/* translators: %s: Name of current post. Only visible to screen readers */
+								__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'mattsadev' ),
+								array(
+									'span' => array(
+										'class' => array(),
+									),
+								)
 							),
+							wp_kses_post( get_the_title() )
 						)
-					),
-					wp_kses_post( get_the_title() )
-				)
-			);
+					);
 
-			wp_link_pages(
-				array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mattsadev' ),
-					'after'  => '</div>',
-				)
-			);
-			?>
-		</div><!-- .entry-content -->
-
-		<footer class="entry-footer">
-			<?php Template_Tags::entry_footer(); ?>
-		</footer><!-- .entry-footer -->
-	</div>
+					wp_link_pages(
+						array(
+							'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mattsadev' ),
+							'after'  => '</div>',
+						)
+					);
+				?>
+			</div><!-- .entry-content -->
+		</a>
+		</div>
 </article><!-- #post-<?php the_ID(); ?> -->

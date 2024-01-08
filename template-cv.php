@@ -181,7 +181,7 @@ if ( $skills->have_posts() ) :
 					<div class="skill-card">
 						<div class="skill-card-logo-wrapper">
 							<div class="skill-card-logo">
-								<img src="<?php echo get_template_directory_uri() . '/src/assets/images/logos/' . get_post_meta( get_the_ID(), 'skill_logo', true ) . '.png' ?>" alt="">
+								<img src="<?php echo get_template_directory_uri() . '/assets/images/logos/' . get_post_meta( get_the_ID(), 'skill_logo', true ) . '.webp' ?>" alt="">
 							</div>
 						</div>
 						<div class="skill-level-container">
@@ -197,14 +197,14 @@ if ( $skills->have_posts() ) :
 
 								// Output fully filled pills
 								for ( $i = 0; $i < $full_pills; $i++ ) {
-									echo '<div class="level level-full">
+									echo '<div class="level level-full hidden">
 										<div class="level-fill"></div>
 									  </div>';
 								}
 
 								// Output partially filled pill
 								if ( $partial_fill > 0 ) {
-									echo '<div class="level level-partial">
+									echo '<div class="level level-partial hidden">
 										<div class="level-fill" style="width:' . $partial_fill . '%;"></div>
 										<div class="level-fill" style="width:' . $partial_fill . '%;"></div>
 									  </div>';
@@ -212,7 +212,7 @@ if ( $skills->have_posts() ) :
 
 								// Output remaining empty pills
 								for ( $i = $full_pills + ($partial_fill > 0 ? 1 : 0); $i < 5; $i++ ) {
-									echo '<div class="level level-empty">
+									echo '<div class="level level-empty hidden">
 										<div class="level-fill"></div>
 									  </div>';
 								}

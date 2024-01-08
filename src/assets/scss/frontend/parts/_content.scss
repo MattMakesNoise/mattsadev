@@ -23,6 +23,7 @@
 		flex-direction: row;
 		margin-bottom: 2rem;
 		padding-bottom: 1rem;
+		transition-delay: 400ms;
 
 		.featured-img-wrapper {
 			flex-basis: 33.4%;
@@ -53,6 +54,7 @@
 
 				.entry-meta {
 					color: var(--text);
+					margin-top: 1.5rem;
 					opacity: .8;
 					font-size: .9rem;
 					text-transform: capitalize;
@@ -65,21 +67,13 @@
 				}
 			}
 
-			.entry-footer {
-				display: flex;
-				flex-direction: column;
+			.entry-content {
+				color: var(--text);
+				opacity: .8;
+				transition: all .3s ease-in-out;
 
-				span a {
-					color: var(--primary);
-					text-decoration: none;
-				}
-
-				.cat-links {
-					margin-bottom: 1rem;
-				}
-
-				.comments-link {
-
+				&:hover {
+					opacity: 1;
 				}
 			}
 		}

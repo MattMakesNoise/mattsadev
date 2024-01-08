@@ -5,13 +5,15 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "gulp && gulp watch"
+    "dev": "gulp && gulp watch",
+    "build-release": "gulp buildRelease"
   },
   "author": "Matt Jones",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.23.7",
     "gulp": "^4.0.2",
+    "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^2.0.0",
@@ -20,7 +22,12 @@
     "gulp-uglify": "^3.0.2",
     "gulp-uglifycss": "^1.1.0",
     "gulp-wait": "0.0.2",
+    "gulp-webp": "^2.3.0",
     "sass": "^1.55.0",
     "uglify": "^0.1.5"
+  },
+  "dependencies": {
+    "gulp-filter": "^5.0.1",
+    "gulp-zip": "^4.2.0"
   }
 }

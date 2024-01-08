@@ -1,7 +1,5 @@
-/**
- * Adds slideout menu functionality.
- */
-( function($) {
+// ( function($) {
+jQuery(document).ready(function ($) {
 	const slideOut = $('#slideout');
 	const pageWrapper = $('#page-wrapper');
 	const overlay = $('#overlay');
@@ -10,7 +8,33 @@
 	const root = $(document.documentElement);
 	const colourSwitcher = $('input[name=theme_switch]');
 	const colourSwitcherToggle = $('.colour-switch');
+	const logoDiv = $('.site-branding a img');
+	let data;
 
+	// Change logo with theme
+	$.ajax({
+		type: 'POST',
+		url: ajax_object.ajax_url,
+		data: {
+			action: 'update_logo'
+		},
+		success: function (response) {
+			if (response) {
+				data = JSON.parse(response);
+
+				// Update logo based on theme
+				if (root.attr("data-theme") === "dark") {
+					logoDiv.attr("src", data.dark_logo_url);
+				} else {
+					logoDiv.attr("src", data.light_logo_url);
+				}
+			}
+		}
+	});
+
+	/**
+	 * Adds theme colour switch functionality.
+	 */
 	if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
 		root.attr("data-theme", "dark");
 		colourSwitcher.prop("checked", true);
@@ -22,8 +46,31 @@
 	// switch theme if checkbox is engaged
 	colourSwitcher.on("change", function () {
 		root.attr("data-theme", this.checked ? "dark" : "light");
+
+		// Update logo based on theme
+		if (root.attr("data-theme") === "dark") {
+			logoDiv.attr("src", data.dark_logo_url);
+		} else {
+			logoDiv.attr("src", data.light_logo_url);
+		}
 	});
 
+	if(!colourSwitcherToggle.data('click-bound')) {
+		colourSwitcherToggle.on('click', function() {
+			colourSwitcher.prop('checked', !colourSwitcher.prop('checked')).change();
+			colourSwitcherToggle.toggleClass('pill-shifted');
+
+			if(colourSwitcherToggle.hasClass('pill-shifted')) {
+				colourSwitcherToggle.css('justify-content', 'flex-end');
+			} else {
+				colourSwitcherToggle.css('justify-content', 'flex-start');
+			}
+		});
+	}
+
+	/**
+	 * Adds slideout menu functionality.
+	 */
 	if(!burgerBtn.data('click-bound')) {
 		burgerBtn.on('click', function() {
 			slideOut.css('display', 'block').css('width', '150px');
@@ -38,19 +85,5 @@
 		pageWrapper.css('left', '0').css('opacity', '1');
 		overlay.css('display', 'none');
 	});
-
-	if(!colourSwitcherToggle.data('click-bound')) {
-		colourSwitcherToggle.on('click', function() {
-			console.log('clicked');
-			colourSwitcher.prop('checked', !colourSwitcher.prop('checked')).change();
-			colourSwitcherToggle.toggleClass('pill-shifted');
-
-			if(colourSwitcherToggle.hasClass('pill-shifted')) {
-				colourSwitcherToggle.css('justify-content', 'flex-end');
-			} else {
-				colourSwitcherToggle.css('justify-content', 'flex-start');
-			}
-		});
-	}
-
-}(jQuery) );
+// }(jQuery) );
+});

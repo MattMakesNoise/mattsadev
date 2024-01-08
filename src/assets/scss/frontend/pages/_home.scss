@@ -26,6 +26,7 @@
 
 		.slide {
 			position: absolute;
+			text-align: center;
 			inset: 0;
 			opacity: 0;
 			transition: 200ms opacity ease-in-out;
@@ -37,6 +38,43 @@
 				height: 100%;
 				object-fit: cover;
 				object-position: center;
+			}
+
+			.hero-text-wrapper {
+				position: absolute;
+				z-index: 5;
+				background-color: var(--bg-colour);
+				padding: 2rem 4rem;
+				border: 1px solid var(--bg-colour);
+				border-radius: $bord-rad;
+
+				p {
+					margin: 2rem 0;
+				}
+			}
+		}
+
+		.slide-one {
+			.hero-text-wrapper {
+				top: 50%;
+				right: 50%;
+				transform: translate(50%, -50%);
+			}
+		}
+
+		.slide-two {
+			.hero-text-wrapper {
+				top: 50%;
+				right: 50%;
+				transform: translate(50%, -50%);
+			}
+		}
+
+		.slide-three {
+			.hero-text-wrapper {
+				top: 75%;
+				right: 50%;
+				transform: translate(50%, -50%);
 			}
 		}
 
@@ -87,6 +125,7 @@
 			position: absolute;
 			top: 95%;
 			left: 50%;
+			transform: translateX(-50%);
 
 			.carousel-dot {
 				width: 8px;
@@ -108,26 +147,10 @@
 		max-width: 100%;
 		display: flex;
 		flex-direction: column;
-		@include lg {
+		@include md {
 			flex-direction: row;
-
-			div:first-child {
-				margin-right: 1rem;
-			}
-		}
-
-		.projects-first-pair,
-		.projects-second-pair {
-			display: flex;
-			flex-direction: column;
-			@include md {
-				flex-direction: row;
-				justify-content: space-between;
-
-				div:first-child {
-					margin-right: 1rem;
-				}
-			}
+			flex-wrap: wrap;
+			justify-content: space-between;
 		}
 
 		.project-wrapper {
@@ -135,6 +158,34 @@
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
+			@include md {
+				width: 48%;
+			}
+
+			@include xl {
+				width: 24%;
+			}
+
+			&:nth-child(2) {
+				transition-delay: 0ms;
+				@include md {
+					transition-delay: 200ms;
+				}
+			}
+
+			&:nth-child(3) {
+				transition-delay: 0ms;
+				@include md {
+					transition-delay: 400ms;
+				}
+			}
+
+			&:nth-child(4) {
+				transition-delay: 0ms;
+				@include md {
+					transition-delay: 600ms;
+				}
+			}
 
 			.image-wrapper {
 				max-width: 100%;
@@ -154,6 +205,54 @@
 			.project-blurb,
 			.read-more {
 				margin-top: 1rem;
+			}
+
+			.read-more {
+				a {
+					color: var(--bg-colour);
+
+					&:hover {
+						color: var(--text);
+					}
+				}
+			}
+		}
+	}
+
+	.contact-container {
+		display: flex;
+		flex-direction: column;
+		@include lg {
+			align-items: center;
+		}
+
+		.contact-form-wrapper {
+			margin-top: 2rem;
+			width: 100%;
+			@include md {
+				width: 80%;
+			}
+			@include lg {
+				width: 50%;
+			}
+			form {
+				input[name="your-name"],
+				input[name="your-email"],
+				input[name="your-subject"],
+				textarea[name="your-message"] {
+					width: 100%;
+					@include font;
+					margin-top: .5rem;
+					padding: .5rem;
+					border: 1px solid var(--primary);
+					border-radius: $bord-rad;
+				}
+
+				input[type="submit"] {
+					@include btn(var(--primary));
+					margin-top: 1rem;
+				}
+
 			}
 		}
 	}

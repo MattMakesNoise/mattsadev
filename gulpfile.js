@@ -2,13 +2,22 @@
 /* USING GULP V 4.0.2 & GULP-CLI V 2.3.0
 /* -------------------------------------------------------------------------- */
 const {src, dest, watch, series, task} = require('gulp');
-const sass        = require('gulp-sass');
-const browserSync = require('browser-sync').create();
-const rename      = require('gulp-rename');
-const wait        = require('gulp-wait');
-const uglifyCSS   = require('gulp-uglifycss');
-const uglifyJS    = require('gulp-uglify');
-const concat = require('gulp-concat');
+const sass              = require('gulp-sass');
+const browserSync       = require('browser-sync').create();
+const rename            = require('gulp-rename');
+const wait              = require('gulp-wait');
+const uglifyCSS         = require('gulp-uglifycss');
+const uglifyJS          = require('gulp-uglify');
+const concat            = require('gulp-concat');
+const clean             = require('gulp-clean');
+const filter            = require('gulp-filter');
+const zip               = require('gulp-zip');
+const fs                = require('fs');
+const path              = require('path');
+const packageJson       = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'package.json')));
+const { name, version } = packageJson;
+const { exec }          = require('child_process');
+const webp              = require('gulp-webp');
 
 // Compile Sass
 function styles() {
@@ -23,7 +32,7 @@ function styles() {
 //Minify CSS to a dist folder
 function minifyCSS() {
     //1. Where is my CSS file?
-    return src('./src/assets/scss/**/*.css')
+    return src('./assets/css/*.css')
         //2. Make the task wait so that Sass has compiled and outputted.
         .pipe(wait(100))
         //3. Pass that file through CSS Uglifier.
@@ -74,6 +83,12 @@ function javascriptAdmin() {
 	.pipe(dest('./assets/js/admin', { sourcemaps: '.' }));
 }
 
+function imagesToWebp() {
+    return src('src/assets/images/**/*.{png,jpg,jpeg,tiff}')
+        .pipe(webp())
+        .pipe(dest('assets/images'));
+}
+
 //Browser-sync Tasks
 function browserSyncServe(cb) {
     browserSync.init({
@@ -99,7 +114,62 @@ exports.default = series(
     minifyCSS,
     javascriptFrontend,
 	javascriptAdmin,
+	imagesToWebp,
     browserSyncServe,
     watchTask
 );
 
+function composerDumpAutoload(cb) {
+    exec('composer dump-autoload', function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
+}
+
+// Define the list of files to include in the distribution package
+const distFiles = [
+    '**',
+    '!node_modules/**',
+    '!package.json',
+    '!package-lock.json',
+    '!gulpfile.js',
+	'!composer.json',
+	'!composer.lock',
+    '!src/assets/scss/**',
+	'!src/assets/js/**',
+	'!src/assets/css/**',
+	'!babel.config.js',
+	'!editorconfig',
+	'!phpcs.xml.dist',
+	'!editorconfig',
+	'!eslintignore',
+	'!eslintrc',
+	'!eslintrc.js',
+	'!gitignore',
+	'!stylelintrc.json',
+    '!**/*.map'
+];
+
+// Define the destination folder for the distribution package
+const distDestination = 'dist';
+
+// Create a distribution package
+function buildRelease() {
+    // Filter out the files to include in the distribution package
+    const f = filter(distFiles);
+
+    return src('**')
+        .pipe(f) // Exclude the unnecessary files
+		.pipe(zip(`${name}-${version}.zip`)) // Use the name and version to name the zip file
+        .pipe(dest(distDestination)); // Output the necessary files to the dist folder
+}
+
+// Clean the distribution folder
+function cleanDist() {
+    return src(distDestination, {read: false, allowEmpty: true})
+        .pipe(clean());
+}
+
+// Export the tasks
+exports.buildRelease = series(cleanDist, composerDumpAutoload, buildRelease);

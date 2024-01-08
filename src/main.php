@@ -6,9 +6,11 @@
  */
 namespace Mattsadev;
 
+use Mattsadev\Inc\Logo_Switch;
 use Mattsadev\Inc\Search;
 use Mattsadev\Inc\Template_Tags;
 use Mattsadev\Inc\Skills;
+use Mattsadev\Inc\Projects;
 
 /**
  * @since 0.1.0
@@ -106,7 +108,7 @@ final class Main {
 		add_action( 'login_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ], 999);
 		add_action( 'after_setup_theme',     [ $this, 'early_setup' ], 9 );
 		add_action( 'after_setup_theme',     [ $this, 'setup' ], 20 );
-		add_action( 'widgets_init', 		   [ $this, 'register_sidebars' ] );
+		add_action( 'widgets_init', 		 [ $this, 'register_sidebars' ] );
 		add_action( 'init',                  [ $this, 'wp_init' ] );
 		add_filter( 'body_class',            [ $this, 'add_slug_to_body_class' ], 10, 1 );
 		add_action( 'wp_footer',             [ $this, 'output_livereload_script' ] );
@@ -117,6 +119,12 @@ final class Main {
 
 		// Skills custom post type and fields
 		Skills::init();
+
+		// Projects custom post type and fields
+		Projects::init();
+
+		// Logo Switch AJAX
+		Logo_Switch::init();
 	}
 
 	/**
@@ -231,7 +239,7 @@ final class Main {
 		 */
 		wp_enqueue_style(
 			'mattsadev',
-			get_stylesheet_directory_uri() . '/assets/css/frontend.css',
+			get_stylesheet_directory_uri() . '/assets/css/frontend.min.css',
 			[],
 			$this->version
 		);

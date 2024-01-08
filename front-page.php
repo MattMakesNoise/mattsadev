@@ -8,6 +8,21 @@
  */
 
 get_header();
+
+$projects = new WP_Query(
+	array(
+		'post_type'      => 'projects',
+		'posts_per_page' => -1,
+		'order'          => 'DESC',
+		// 'meta_key'       => 'project_level',
+		// 'orderby'        => 'meta_value_num',
+	)
+);
+
+$base_url = \Mattsadev\Main::instance()->stylesheet_uri . 'assets/images/projects/';
+$base_url_carousel = \Mattsadev\Main::instance()->stylesheet_uri . 'assets/images/carousel/';
+
+if ( $projects->have_posts() ) :
 ?>
 
 	<main id="primary" class="site-main">
@@ -18,14 +33,29 @@ get_header();
 						<button class="carousel-button prev" data-carousel-button="prev">&#60</button>
 						<button class="carousel-button next" data-carousel-button="next">&#62</button>
 						<ul data-slides>
-							<li class="slide" data-active="true">
-								<img src="https://picsum.photos/seed/1702287946690/600/300" alt="">
+							<li class="slide slide-one" data-active="true">
+								<img src="<?php echo $base_url_carousel . 'dev1.webp'?>" alt="">
+								<div class="hero-text-wrapper">
+									<h2>Hi! I'm Matt</h2>
+									<p>A front-end developer based in Norwich, UK.</p>
+									<button>Click me!</button>
+								</div>
 							</li>
-							<li class="slide">
-								<img src="https://picsum.photos/seed/1702287956193/600/300" alt="">
+							<li class="slide slide-two">
+								<img src="<?php echo $base_url_carousel . 'dev2.webp'?>" alt="">
+								<div class="hero-text-wrapper">
+									<h2>Hi! I'm Matt</h2>
+									<p>Also building themes and plugins using WordPress</p>
+									<button>Click me!</button>
+								</div>
 							</li>
-							<li class="slide">
-								<img src="https://picsum.photos/seed/1702287957682/600/300" alt="">
+							<li class="slide slide-three">
+								<img src="<?php echo $base_url_carousel . 'sound_eng.webp'?>" alt="">
+								<div class="hero-text-wrapper">
+									<h2>Hi! I'm Matt</h2>
+									<p>I used to tour the world as a sound engineer and occasionally dip my toes back into the world of noise!</p>
+									<button>Click me!</button>
+								</div>
 							</li>
 						</ul>
 						<div class="carousel-dots">
@@ -37,101 +67,38 @@ get_header();
 				</section>
 			</div>
 			<div class="projects-container">
-				<div class="projects-first-pair">
-					<div class="project-wrapper fade-in from-left slide-in">
-						<div class="image-wrapper">
-							<img src="https://picsum.photos/seed/1702227117452/300/300" alt="">
-						</div>
-						<div class="project-title">Project 1</div>
-						<div class="project-blurb">I'm a great project</div>
-						<button class="read-more">More</button>
+				<?php
+					while ( $projects->have_posts() ) :
+						$projects->the_post();
+				?>
+				<div class="project-wrapper hidden">
+					<div class="image-wrapper">
+						<img src="<?php echo $base_url . get_post_meta( get_the_ID(), 'project_image', true ) . '.webp' ?>" alt="">
 					</div>
-					<div class="project-wrapper fade-in from-right slide-in">
-						<div class="image-wrapper">
-							<img src="https://picsum.photos/seed/1702227195824/300/300" alt="">
-						</div>
-						<div class="project-title">Project 2</div>
-						<div class="project-blurb">I'm a great project</div>
-						<button class="read-more">More</button>
-					</div>
+					<h4 class="project-title"><?php echo the_title() ?></h4>
+					<div class="project-blurb"><?php echo the_content() ?></div>
+					<button class="read-more"><a href="<?php echo get_post_meta( get_the_ID(), 'project_url', true ) ?>" target="_blank">View Site</a></button>
 				</div>
-				<div class="projects-second-pair">
-					<div class="project-wrapper fade-in from-left slide-in">
-						<div class="image-wrapper">
-							<img src="https://picsum.photos/seed/1702227214671/300/300" alt="">
-						</div>
-						<div class="project-title">Project 3</div>
-						<div class="project-blurb">I'm a great project</div>
-						<button class="read-more">More</button>
-					</div>
-					<div class="project-wrapper fade-in from-right slide-in">
-						<div class="image-wrapper">
-							<img src="https://picsum.photos/seed/1702227225965/300/300" alt="">
-						</div>
-						<div class="project-title">Project 4</div>
-						<div class="project-blurb">I'm a great project</div>
-						<button class="read-more">More</button>
-					</div>
-				</div>
+				<?php
+					endwhile;
+				?>
 			</div>
 			<div class="contact-container">
-				<h2 class="contact-title">Get in touch!</h2>
-				<p class="contact-blurb">Got a question or want to work together?</p>
+				<div class="contact-title">
+					<h3 class="contact-title">Get in touch!</h3>
+				</div>
 				<div class="contact-form-wrapper">
-					<form action="" id="contact-form">
-						<div class="first-last-wrapper">
-							<div class="first-name-wrapper form-control">
-								<label for="fname">First Name</label>
-								<input type="text" id="fname" name="fname">
-								<div class="error-wrapper">
-									<i class="fas fa-check-circle"></i>
-									<i class="fas fa-exclamation-circle"></i>
-									<small class="error-message">Error</small>
-								</div>
-							</div>
-							<div class="second-name-wrapper form-control">
-								<label for="sname">Second Name</label>
-								<input type="text" id="sname" name="sname">
-								<i class="fas fa-check-circle"></i>
-								<i class="fas fa-exclamation-circle"></i>
-								<small class="error-message">Error</small>
-							</div>
-						</div>
-						<div class="email-subject-wrapper">
-							<div class="email-wrapper form-control">
-								<label for="email">Email</label>
-								<input type="email" id="email" name="email">
-								<i class="fas fa-check-circle"></i>
-								<i class="fas fa-exclamation-circle"></i>
-								<small class="error-message">Error</small>
-							</div>
-							<div class="subject-wrapper form-control">
-								<label for="subject">Subject</label>
-								<input type="text" id="subject" name="subject">
-								<i class="fas fa-check-circle"></i>
-								<i class="fas fa-exclamation-circle"></i>
-								<small class="error-message">Error</small>
-							</div>
-						</div>
-						<div class="message-wrapper">
-							<div class="message-wrapper form-control">
-								<label for="message">Message</label>
-								<textarea name="message" id="message" cols="30" rows="10"></textarea>
-								<i class="fas fa-check-circle"></i>
-								<i class="fas fa-exclamation-circle"></i>
-								<small class="error-message">Error</small>
-							</div>
-						</div>
-						<div class="submit-wrapper">
-							<input type="submit" value="Submit">
-						</div>
-					</form>
+					<?php
+						echo do_shortcode(
+							'[contact-form-7 id="cd636b0" title="Get in touch!"]'
+						);
+					?>
 				</div>
 			</div>
 		</div>
-
-
 	</main><!-- #main -->
 
-<?php
+<?php endif;
+
+wp_reset_postdata();
 get_footer();
