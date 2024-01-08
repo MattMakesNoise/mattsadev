@@ -1,6 +1,11 @@
 @import "../../variables", "../../mixins";
 
 .widget-area {
+	padding: 0 .5rem;
+	@include md {
+		padding: 0 1rem;
+	}
+
 	.widget {
 		@include card;
 
@@ -29,19 +34,32 @@
 				display: none;
 			}
 
-			input {
-				width: 100%;
-				background-color: var(--bg-colour-darker);
-				color: var(--text);
-				padding: .5rem;
-				border: 1px solid var(--primary);
-				border-radius: $bord-rad;
-				box-shadow: $shadow;
+			.wp-block-search__inside-wrapper {
+				display: flex;
+				flex-direction: column;
+				@include sm {
+					flex-direction: row;
+				}
+
+				input {
+					width: 100%;
+					background-color: var(--bg-colour-darker);
+					color: var(--text);
+					padding: .5rem;
+					border: 1px solid var(--primary);
+					border-radius: $bord-rad;
+					box-shadow: $shadow;
+				}
+	
+				.wp-block-search__button {
+					@include btn(var(--primary));
+					margin: 1rem 0 0 0;
+					@include sm {
+						margin: 0 0 0 1rem;
+					}
+				}
 			}
 
-			.wp-block-search__button {
-				@include btn(var(--primary));
-			}
 		}
 	}
 }

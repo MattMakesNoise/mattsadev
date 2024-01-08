@@ -2,34 +2,58 @@
 
 .content-wrapper {
 	display: flex;
+	flex-direction: column;
 	max-width: 1440px;
-	//margin: 0 auto;
-	//padding: 2rem 1rem;
 	padding: 2rem 0;
 	min-height: 100vh;
+	@include lg {
+		flex-direction: row;
+	}
 
 	.site-main {
 		flex-basis: 100%;
 		padding: 0 1rem;
+		order: 2;
+		@include lg {
+			order: 1;
+		}
 	}
 
 	.widget-area {
 		flex-basis: 33.4%;
+		@include lg {
+			order: 2;
+		}
+
+		&> :not(:first-child) {
+			display: none;
+
+			@include lg {
+				display: block;
+			}
+		}
 	}
 
 	article {
 		@include card;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		margin-bottom: 2rem;
 		padding-bottom: 1rem;
 		transition-delay: 400ms;
+		@include md {
+			flex-direction: row;
+		}
 
 		.featured-img-wrapper {
 			flex-basis: 33.4%;
-			margin-right: 2rem;
+			margin-bottom: 1rem;
 			border-radius: $bord-rad;
 			overflow: hidden;
+			@include md {
+				margin-bottom: 0;
+				margin-right: 2rem;
+			}
 
 			a img {
 				max-width: 100%;

@@ -1218,14 +1218,30 @@ html[data-theme="dark"] {
 
 .content-wrapper {
   display: flex;
+  flex-direction: column;
   max-width: 1440px;
   padding: 2rem 0;
   min-height: 100vh; }
+  @media (min-width: 992px) {
+    .content-wrapper {
+      flex-direction: row; } }
   .content-wrapper .site-main {
     flex-basis: 100%;
-    padding: 0 1rem; }
+    padding: 0 1rem;
+    order: 2; }
+    @media (min-width: 992px) {
+      .content-wrapper .site-main {
+        order: 1; } }
   .content-wrapper .widget-area {
     flex-basis: 33.4%; }
+    @media (min-width: 992px) {
+      .content-wrapper .widget-area {
+        order: 2; } }
+    .content-wrapper .widget-area > :not(:first-child) {
+      display: none; }
+      @media (min-width: 992px) {
+        .content-wrapper .widget-area > :not(:first-child) {
+          display: block; } }
   .content-wrapper article {
     background-color: var(--bg-colour);
     border: 1px solid var(--bg-colour);
@@ -1235,17 +1251,24 @@ html[data-theme="dark"] {
     margin-bottom: 2rem;
     transition: transform .3s ease;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     transition-delay: 400ms; }
     .content-wrapper article:hover {
       transform: translateY(-5px); }
+    @media (min-width: 768px) {
+      .content-wrapper article {
+        flex-direction: row; } }
     .content-wrapper article .featured-img-wrapper {
       flex-basis: 33.4%;
-      margin-right: 2rem;
+      margin-bottom: 1rem;
       border-radius: 10px;
       overflow: hidden; }
+      @media (min-width: 768px) {
+        .content-wrapper article .featured-img-wrapper {
+          margin-bottom: 0;
+          margin-right: 2rem; } }
       .content-wrapper article .featured-img-wrapper a img {
         max-width: 100%;
         height: auto; }
@@ -1403,58 +1426,70 @@ html[data-theme="dark"] {
   html[data-theme="dark"] .fa-moon-o {
     display: none; }
 
-.widget-area .widget {
-  background-color: var(--bg-colour);
-  border: 1px solid var(--bg-colour);
-  border-radius: 10px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-  padding: 2rem;
-  margin-bottom: 2rem;
-  transition: transform .3s ease; }
-  .widget-area .widget:hover {
-    transform: translateY(-5px); }
-  .widget-area .widget .wp-block-heading {
-    margin-bottom: 3rem;
-    padding: .5rem 0;
-    display: inline;
-    border-bottom: 1px solid var(--primary); }
-  .widget-area .widget .wp-block-latest-posts__list,
-  .widget-area .widget .wp-block-latest-comments,
-  .widget-area .widget .wp-block-archives-list,
-  .widget-area .widget .wp-block-categories-list {
-    margin-top: 2rem; }
-  .widget-area .widget .wp-block-latest-posts__post-title {
-    margin-bottom: 1rem; }
-
-.widget-area .widget_search form label {
-  display: none; }
-
-.widget-area .widget_search form input {
-  width: 100%;
-  background-color: var(--bg-colour-darker);
-  color: var(--text);
-  padding: .5rem;
-  border: 1px solid var(--primary);
-  border-radius: 10px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }
-
-.widget-area .widget_search form .wp-block-search__button {
-  display: inline-block;
-  background-color: var(--primary);
-  color: var(--bg-colour);
-  padding: .75rem 1.5rem;
-  border: 1px solid var(--primary);
-  border-radius: 10px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all .1s ease-in-out; }
-  .widget-area .widget_search form .wp-block-search__button:hover {
+.widget-area {
+  padding: 0 .5rem; }
+  @media (min-width: 768px) {
+    .widget-area {
+      padding: 0 1rem; } }
+  .widget-area .widget {
     background-color: var(--bg-colour);
-    color: var(--text); }
-  .widget-area .widget_search form .wp-block-search__button:active {
-    transform: scale(0.99); }
+    border: 1px solid var(--bg-colour);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    transition: transform .3s ease; }
+    .widget-area .widget:hover {
+      transform: translateY(-5px); }
+    .widget-area .widget .wp-block-heading {
+      margin-bottom: 3rem;
+      padding: .5rem 0;
+      display: inline;
+      border-bottom: 1px solid var(--primary); }
+    .widget-area .widget .wp-block-latest-posts__list,
+    .widget-area .widget .wp-block-latest-comments,
+    .widget-area .widget .wp-block-archives-list,
+    .widget-area .widget .wp-block-categories-list {
+      margin-top: 2rem; }
+    .widget-area .widget .wp-block-latest-posts__post-title {
+      margin-bottom: 1rem; }
+  .widget-area .widget_search form label {
+    display: none; }
+  .widget-area .widget_search form .wp-block-search__inside-wrapper {
+    display: flex;
+    flex-direction: column; }
+    @media (min-width: 576px) {
+      .widget-area .widget_search form .wp-block-search__inside-wrapper {
+        flex-direction: row; } }
+    .widget-area .widget_search form .wp-block-search__inside-wrapper input {
+      width: 100%;
+      background-color: var(--bg-colour-darker);
+      color: var(--text);
+      padding: .5rem;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }
+    .widget-area .widget_search form .wp-block-search__inside-wrapper .wp-block-search__button {
+      display: inline-block;
+      background-color: var(--primary);
+      color: var(--bg-colour);
+      padding: .75rem 1.5rem;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+      font-weight: 600;
+      text-align: center;
+      text-decoration: none;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all .1s ease-in-out;
+      margin: 1rem 0 0 0; }
+      .widget-area .widget_search form .wp-block-search__inside-wrapper .wp-block-search__button:hover {
+        background-color: var(--bg-colour);
+        color: var(--text); }
+      .widget-area .widget_search form .wp-block-search__inside-wrapper .wp-block-search__button:active {
+        transform: scale(0.99); }
+      @media (min-width: 576px) {
+        .widget-area .widget_search form .wp-block-search__inside-wrapper .wp-block-search__button {
+          margin: 0 0 0 1rem; } }
 /*# sourceMappingURL=frontend.css.map */
