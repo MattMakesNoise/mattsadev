@@ -38,23 +38,20 @@ if ( $projects->have_posts() ) :
 								<div class="hero-text-wrapper">
 									<h2>Hi! I'm Matt</h2>
 									<p>A front-end developer based in Norwich, UK.</p>
-									<button>Click me!</button>
 								</div>
 							</li>
 							<li class="slide slide-two">
 								<img src="<?php echo $base_url_carousel . 'dev2.webp'?>" alt="">
 								<div class="hero-text-wrapper">
 									<h2>Hi! I'm Matt</h2>
-									<p>Also building themes and plugins using WordPress</p>
-									<button>Click me!</button>
+									<p>Building themes and plugins using WordPress</p>
 								</div>
 							</li>
 							<li class="slide slide-three">
 								<img src="<?php echo $base_url_carousel . 'sound_eng.webp'?>" alt="">
 								<div class="hero-text-wrapper">
 									<h2>Hi! I'm Matt</h2>
-									<p>I used to tour the world as a sound engineer and occasionally dip my toes back into the world of noise!</p>
-									<button>Click me!</button>
+									<p>I used to tour the world as a sound engineer.</p>
 								</div>
 							</li>
 						</ul>

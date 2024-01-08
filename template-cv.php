@@ -22,7 +22,7 @@ if ( $skills->have_posts() ) :
 
 			<div class="contact-container">
 				<div class="contact-header">
-					<img src="<?php echo get_template_directory_uri() . '/src/assets/images/IMG_1677.JPG' ?>" alt="">
+					<img src="<?php echo get_template_directory_uri() . '/assets/images/IMG_1677.webp' ?>" alt="">
 				</div>
 				<div class="contacts-wrapper">
 					<div class="contact-title">

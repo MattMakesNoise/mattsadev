@@ -26,13 +26,13 @@ function styles() {
         //2. Pass the file through compiler
         .pipe(sass().on('error', sass.logError)) // Throw shortened error if you make a mistake
         //3. Where is the compiled CSS output
-        .pipe(dest('./assets/css', {sourcemaps: '.'}));
+        .pipe(dest('./src/assets/css', {sourcemaps: '.'}));
 }
 
 //Minify CSS to a dist folder
 function minifyCSS() {
     //1. Where is my CSS file?
-    return src('./assets/css/*.css')
+    return src('./src/assets/css/*.css')
         //2. Make the task wait so that Sass has compiled and outputted.
         .pipe(wait(100))
         //3. Pass that file through CSS Uglifier.
@@ -84,7 +84,7 @@ function javascriptAdmin() {
 }
 
 function imagesToWebp() {
-    return src('src/assets/images/**/*.{png,jpg,jpeg,tiff}')
+    return src('src/assets/images/**/*')
         .pipe(webp())
         .pipe(dest('assets/images'));
 }
