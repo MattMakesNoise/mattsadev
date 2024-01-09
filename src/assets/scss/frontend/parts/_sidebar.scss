@@ -13,7 +13,7 @@
 			margin-bottom: 3rem;
 			padding: .5rem 0;
 			display: inline;
-			border-bottom: 1px solid var(--primary);
+			border-bottom: 2px solid var(--primary);
 		}
 
 		.wp-block-latest-posts__list,
@@ -21,6 +21,14 @@
 		.wp-block-archives-list,
 		.wp-block-categories-list {
 			margin-top: 2rem;
+
+			li {
+				list-style-type: none;
+				
+				a {
+					@include link;
+				}
+			}
 		}
 
 		.wp-block-latest-posts__post-title {
@@ -40,6 +48,9 @@
 				@include sm {
 					flex-direction: row;
 				}
+				@include lg {
+					flex-direction: column;
+				}
 
 				input {
 					width: 100%;
@@ -57,9 +68,11 @@
 					@include sm {
 						margin: 0 0 0 1rem;
 					}
+					@include lg {
+						margin: 1rem 0 0 0;
+					}
 				}
 			}
-
 		}
 	}
 }
