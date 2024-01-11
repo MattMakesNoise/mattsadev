@@ -112,6 +112,7 @@ final class Main {
 		add_action( 'init',                  [ $this, 'wp_init' ] );
 		add_filter( 'body_class',            [ $this, 'add_slug_to_body_class' ], 10, 1 );
 		add_action( 'wp_footer',             [ $this, 'output_livereload_script' ] );
+		add_filter( 'clean_url',             [ $this, 'defer_js_parsing' ], 11, 1 );
 
 		Template_Tags::init();
 
@@ -357,5 +358,26 @@ final class Main {
 	 */
 	public function hide_admin_bar() {
 		show_admin_bar( false );
+	}
+
+	/**
+	 * Defer parsing of JavaScript files.
+	 *
+	 * @since 1.0.0
+	 */
+	public function defer_js_parsing( $url ) {
+		if ( is_admin() ) {
+			return $url;
+		}
+
+		if ( false === strpos( $url, '.js' ) ) {
+			return $url;
+		}
+
+		if ( strpos( $url, 'jquery.js' ) ) {
+			return $url;
+		}
+
+		return "$url' defer='defer";
 	}
 }
