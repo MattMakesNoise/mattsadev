@@ -27,24 +27,25 @@ if ( post_password_required() ) {
 	if ( have_comments() ) :
 		?>
 		<h2 class="comments-title">
-			<?php
-			$mattsadev_comment_count = get_comments_number();
-			if ( '1' === $mattsadev_comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'mattsadev' ),
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-				);
-			} else {
-				printf( 
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $mattsadev_comment_count, 'comments title', 'mattsadev' ) ),
-					number_format_i18n( $mattsadev_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-				);
-			}
-			?>
-		</h2><!-- .comments-title -->
+			Comments
+		</h2>
+		<?php
+		$mattsadev_comment_count = get_comments_number();
+		if ( '0' === $mattsadev_comment_count ) {
+			printf(
+				/* translators: 1: title. */
+				'<h3 class="comments-subtitle">' . esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'mattsadev' ) . '</h3>',
+				'<span>' . wp_kses_post( get_the_title() ) . '</span>'
+			);
+		} else {
+			printf( 
+				/* translators: 1: comment count number, 2: title. */
+				'<h3 class="comments-subtitle">' . esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $mattsadev_comment_count, 'comments title', 'mattsadev' ) ) . '</h3>',
+				number_format_i18n( $mattsadev_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				'<span>' . wp_kses_post( get_the_title() ) . '</span>'
+			);
+		}
+		?>
 
 		<?php the_comments_navigation(); ?>
 
@@ -52,8 +53,10 @@ if ( post_password_required() ) {
 			<?php
 			wp_list_comments(
 				array(
-					'style'      => 'ol',
-					'short_ping' => true,
+					'walker'     => new Mattsadev\Inc\Comment_Walker(),
+					'avatar_size' => 120,
+					'per_page' => 10,
+					'style'      => 'div',
 				)
 			);
 			?>
