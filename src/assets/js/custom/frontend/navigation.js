@@ -1,4 +1,3 @@
-// ( function($) {
 jQuery(document).ready(function ($) {
 	const slideOut = $('#slideout');
 	const pageWrapper = $('#page-wrapper');
@@ -85,5 +84,4 @@ jQuery(document).ready(function ($) {
 		pageWrapper.css('left', '0').css('opacity', '1');
 		overlay.css('display', 'none');
 	});
-// }(jQuery) );
 });

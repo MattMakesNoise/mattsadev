@@ -18,63 +18,110 @@
 if ( post_password_required() ) {
 	return;
 }
-?>
 
-<div id="comments" class="comments-area">
+if ( $comments ) {
 
-	<?php
-	// You can start editing here -- including this comment!
-	if ( have_comments() ) :
-		?>
-		<h2 class="comments-title">
-			Comments
-		</h2>
+	?>
+
+	<div id="comments" class="comments-area">
+
 		<?php
-		$mattsadev_comment_count = get_comments_number();
-		if ( '0' === $mattsadev_comment_count ) {
-			printf(
-				/* translators: 1: title. */
-				'<h3 class="comments-subtitle">' . esc_html__( 'One thought on &ldquo;%1$s&rdquo;', 'mattsadev' ) . '</h3>',
-				'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-			);
-		} else {
-			printf( 
-				/* translators: 1: comment count number, 2: title. */
-				'<h3 class="comments-subtitle">' . esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $mattsadev_comment_count, 'comments title', 'mattsadev' ) ) . '</h3>',
-				number_format_i18n( $mattsadev_comment_count ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				'<span>' . wp_kses_post( get_the_title() ) . '</span>'
-			);
-		}
+		$comments_count = get_comments_number();
 		?>
 
-		<?php the_comments_navigation(); ?>
+		<div class="comments-header">
+			<h2 class="comments-title">
+				Comments
+				<h3 class="comments-subtitle">
+					<?php
+					if ( ! have_comments() ) {
+						_e( 'Leave a comment', 'mattsadev' );
+					} elseif ( '1' === $comments_count ) {
+						/* translators: %s: Post title. */
+						printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'mattsadev' ), get_the_title() );
+					} else {
+						printf(
+							/* translators: 1: Number of comments, 2: Post title. */
+							_nx(
+								'%1$s reply on &ldquo;%2$s&rdquo;',
+								'%1$s replies on &ldquo;%2$s&rdquo;',
+								$comments_count,
+								'comments title',
+								'mattsadev'
+							),
+							number_format_i18n( $comments_count ),
+							get_the_title()
+						);
+					}
 
-		<ol class="comment-list">
+					?>
+				</h3>
+			</h2><!-- .comments-title -->
+
+		</div><!-- .comments-header -->
+
+		<ul class="comments-body">
+
 			<?php
 			wp_list_comments(
 				array(
-					'walker'     => new Mattsadev\Inc\Comment_Walker(),
+					'callback'    => 'Mattsadev\Inc\Comments_Callback::comment_callback',
 					'avatar_size' => 120,
-					'per_page' => 10,
-					'style'      => 'div',
 				)
 			);
+
+			$comment_pagination = paginate_comments_links(
+				array(
+					'echo'      => false,
+					'end_size'  => 0,
+					'mid_size'  => 0,
+					'next_text' => __( 'Newer Comments', 'mattsadev' ) . ' <span aria-hidden="true">&rarr;</span>',
+					'prev_text' => '<span aria-hidden="true">&larr;</span> ' . __( 'Older Comments', 'mattsadev' ),
+				)
+			);
+
+			if ( $comment_pagination ) {
+				$pagination_classes = '';
+
+				// If we're only showing the "Next" link, add a class indicating so.
+				if ( ! str_contains( $comment_pagination, 'prev page-numbers' ) ) {
+					$pagination_classes = ' only-next';
+				}
+				?>
+
+				<nav class="comments-pagination pagination<?php echo $pagination_classes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static output ?>" aria-label="<?php esc_attr_e( 'Comments', 'mattsadev' ); ?>">
+					<?php echo wp_kses_post( $comment_pagination ); ?>
+				</nav>
+
+				<?php
+			}
 			?>
-		</ol><!-- .comment-list -->
 
-		<?php
-		the_comments_navigation();
+		</ul><!-- .comments-body -->
 
-		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() ) :
-			?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'mattsadev' ); ?></p>
-			<?php
-		endif;
+	</div><!-- #comments -->
 
-	endif; // Check for have_comments().
+	<?php
+}
 
-	comment_form();
+if ( comments_open() || pings_open() ) {
+
+	comment_form(
+		array(
+			'class_form'         => 'section-inner',
+			'title_reply_before' => '<h2 id="reply-title" class="comment-reply-title">',
+			'title_reply_after'  => '</h2>',
+		)
+	);
+
+} elseif ( is_single() ) {
 	?>
 
-</div><!-- #comments -->
+	<div class="comment-respond" id="respond">
+
+		<p class="comments-closed"><?php _e( 'Comments are closed.', 'mattsadev' ); ?></p>
+
+	</div><!-- #respond -->
+
+	<?php
+}

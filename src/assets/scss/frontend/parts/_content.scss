@@ -177,8 +177,129 @@ body.single {
 	}
 
 	#comments {
-		@include card;
+		@include container;
 		margin-top: 2rem;
+		padding: 2rem 2rem 0 2rem;
+
+		.comments-header {
+			margin-bottom: 1rem;
+
+			.comments-title {
+				margin-bottom: 1rem;
+				padding-bottom: .5rem;
+				display: inline;
+				border-bottom: 2px solid var(--primary);
+			}
+
+			.comments-subtitle {
+				margin-top: 1.5rem;
+			}
+		}
+
+		.comments-body {
+			margin-bottom: 0;
+			padding: 1rem 0 0 0;
+			list-style: none;
+
+			ul {
+				list-style: none;
+				padding-left: 0;
+
+				li {
+					list-style: none;
+				}
+			}
+
+			.comment {
+				background-color: var(--bg-colour-darker);
+				margin-bottom: 1rem;
+
+				&.depth-1 {
+					padding: 1rem;
+					border-radius: $bord-rad;
+					box-shadow: $shadow;
+
+					&:last-child-of-type {
+						margin-bottom: 0;
+					}
+				}
+
+				.vcard {
+					display: flex;
+
+					img {
+						margin-right: 1rem;
+						border-radius: 50%;
+						height: 50px;
+						width: auto;
+					}
+				}
+
+				p {
+					margin: 1rem 0;
+				}
+
+				.reply {
+					margin-bottom: 1rem;
+					@include btn(var(--primary));
+
+					a {
+						color: var(--bg-colour);
+					}
+
+					&:hover a {
+						color: var(--primary) !important;
+					}
+				}
+
+				.children {
+					margin-left: 2rem;
+				}
+			}
+		}
+
+		
+
+		// .comment-list {
+		// 	list-style-type: none;
+
+		// 	li {
+		// 		list-style: none;
+
+		// 		.comment-body {
+		// 			margin-bottom: 0;
+		// 			padding: 1rem 0;
+		// 		}
+		// 	}
+			
+		// 	a {
+		// 		@include link;
+		// 	}
+
+		// 	.comment-metadata,
+		// 	.comment-content {
+		// 		margin-top: .5rem;
+		// 	}
+
+		// 	.reply {
+		// 		margin-top: .5rem;
+		// 		@include btn(var(--primary));
+		// 		max-width: 50%;
+
+		// 		&:hover a {
+		// 			color: var(--primary) !important;
+		// 		}
+
+		// 		a {
+		// 			color: var(--bg-colour);
+
+		// 		}
+		// 	}
+		// }
+	}
+
+	#respond {
+		@include container;
 
 		#reply-title {
 			margin-bottom: 1rem;
@@ -229,54 +350,6 @@ body.single {
 			.form-submit {
 				#submit {
 					@include btn(var(--primary));
-				}
-			}
-		}
-
-		.comments-title {
-			margin-bottom: 1rem;
-			padding-bottom: .5rem;
-			display: inline;
-			border-bottom: 2px solid var(--primary);
-		}
-
-		.comments-subtitle {
-			margin-top: 1.5rem;
-		}
-
-		.comment-list {
-			list-style-type: none;
-
-			li {
-				list-style: none;
-
-				.comment-body {
-					margin-bottom: 0;
-					padding: 1rem 0;
-				}
-			}
-			
-			a {
-				@include link;
-			}
-
-			.comment-metadata,
-			.comment-content {
-				margin-top: .5rem;
-			}
-
-			.reply {
-				margin-top: .5rem;
-				@include btn(var(--primary));
-				max-width: 50%;
-
-				&:hover a {
-					color: var(--primary) !important;
-				}
-
-				a {
-					color: var(--bg-colour);
-
 				}
 			}
 		}
