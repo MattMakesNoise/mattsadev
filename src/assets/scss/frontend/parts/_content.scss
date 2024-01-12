@@ -257,59 +257,36 @@ body.single {
 				}
 			}
 		}
-
-		
-
-		// .comment-list {
-		// 	list-style-type: none;
-
-		// 	li {
-		// 		list-style: none;
-
-		// 		.comment-body {
-		// 			margin-bottom: 0;
-		// 			padding: 1rem 0;
-		// 		}
-		// 	}
-			
-		// 	a {
-		// 		@include link;
-		// 	}
-
-		// 	.comment-metadata,
-		// 	.comment-content {
-		// 		margin-top: .5rem;
-		// 	}
-
-		// 	.reply {
-		// 		margin-top: .5rem;
-		// 		@include btn(var(--primary));
-		// 		max-width: 50%;
-
-		// 		&:hover a {
-		// 			color: var(--primary) !important;
-		// 		}
-
-		// 		a {
-		// 			color: var(--bg-colour);
-
-		// 		}
-		// 	}
-		// }
 	}
 
 	#respond {
 		@include container;
 
 		#reply-title {
+			display: flex;
+			flex-direction: column;
 			margin-bottom: 1rem;
-			padding-bottom: .5rem;
-			display: inline;
-			border-bottom: 2px solid var(--primary);
+
+			small {
+				margin-top: 1rem;
+
+				a {
+					@include btn(var(--primary));
+					font-size: .75rem;
+
+					&:hover {
+						color: var(--primary);
+					}
+				}
+			}
 		}
 
 		form {
 			margin-top: 2rem;
+
+			.logged-in-as {
+				margin-bottom: 1rem;
+			}
 
 			.comment-notes,
 			.comment-form-comment,
@@ -331,10 +308,10 @@ body.single {
 					border: 1px solid var(--primary);
 					border-radius: $bord-rad;
 				}
+			}
 
-				.required {
-					color: red;
-				}
+			.required {
+				color: red;
 			}
 
 			.comment-form-cookies-consent {

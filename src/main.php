@@ -113,6 +113,7 @@ final class Main {
 		add_filter( 'body_class',            [ $this, 'add_slug_to_body_class' ], 10, 1 );
 		add_action( 'wp_footer',             [ $this, 'output_livereload_script' ] );
 		add_filter( 'clean_url',             [ $this, 'defer_js_parsing' ], 11, 1 );
+		add_action('wp_print_scripts',       [ $this, 'enqueue_comment_reply_js' ]);
 
 		Template_Tags::init();
 
@@ -379,5 +380,16 @@ final class Main {
 		}
 
 		return "$url' defer='defer";
+	}
+
+	/**
+	 * Enqueue comment-reply script only on single posts and pages.
+	 *
+	 * @since 1.0.0
+	 */
+	public function enqueue_comment_reply_js() {
+		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+			wp_enqueue_script( 'comment-reply' );
+		}
 	}
 }

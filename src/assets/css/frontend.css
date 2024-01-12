@@ -1389,12 +1389,37 @@ body.single #respond {
   border-radius: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1); }
   body.single #respond #reply-title {
-    margin-bottom: 1rem;
-    padding-bottom: .5rem;
-    display: inline;
-    border-bottom: 2px solid var(--primary); }
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem; }
+    body.single #respond #reply-title small {
+      margin-top: 1rem; }
+      body.single #respond #reply-title small a {
+        display: inline-block;
+        background-color: var(--primary);
+        color: var(--bg-colour);
+        padding: .75rem 1.5rem;
+        border: 1px solid var(--primary);
+        border-radius: 10px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        font-weight: 600;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all .1s ease-in-out;
+        font-size: .75rem; }
+        body.single #respond #reply-title small a:hover {
+          background-color: var(--bg-colour);
+          color: var(--text); }
+        body.single #respond #reply-title small a:active {
+          transform: scale(0.99); }
+        body.single #respond #reply-title small a:hover {
+          color: var(--primary); }
   body.single #respond form {
     margin-top: 2rem; }
+    body.single #respond form .logged-in-as {
+      margin-bottom: 1rem; }
     body.single #respond form .comment-notes,
     body.single #respond form .comment-form-comment,
     body.single #respond form .comment-form-author,
@@ -1423,12 +1448,8 @@ body.single #respond {
         padding: .5rem;
         border: 1px solid var(--primary);
         border-radius: 10px; }
-      body.single #respond form .comment-notes .required,
-      body.single #respond form .comment-form-comment .required,
-      body.single #respond form .comment-form-author .required,
-      body.single #respond form .comment-form-email .required,
-      body.single #respond form .comment-form-url .required {
-        color: red; }
+    body.single #respond form .required {
+      color: red; }
     body.single #respond form .comment-form-cookies-consent {
       display: flex;
       align-items: center;
